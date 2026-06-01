@@ -2,7 +2,7 @@
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { Accordion } from "react-bootstrap";
 
 const PLAN_PRICES = {
@@ -13,7 +13,7 @@ const PLAN_PRICES = {
 
 const formatCurrency = (amount) => `$${amount.toFixed(2)}`;
 
-const Checkout = () => {
+const CheckoutContent = () => {
   const searchParams = useSearchParams();
   const initialPlan = (searchParams.get("plan") || "basic").toLowerCase();
   const initialBilling = (searchParams.get("billing") || "monthly").toLowerCase();
@@ -633,4 +633,11 @@ const Checkout = () => {
     </Layout>
   );
 };
+
+const Checkout = () => (
+  <Suspense fallback={null}>
+    <CheckoutContent />
+  </Suspense>
+);
+
 export default Checkout;
