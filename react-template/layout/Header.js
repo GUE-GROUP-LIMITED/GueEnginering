@@ -2,7 +2,7 @@ import { sideBarToggle } from "@/utility";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 
-const HEADER_LOGO = "assets/images/logos/logo-withbg.png";
+const HEADER_LOGO = "assets/images/logos/logoheader.png";
 
 const Header = ({ header }) => {
   switch (header) {
