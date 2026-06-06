@@ -55,3 +55,10 @@ html {
 .product-details-images .nav-link {
   padding: 0;
 }
+
+/* Match header background to the light footer tone for better consistency. */
+.main-header .header-upper,
+.main-header.menu-absolute .header-upper,
+.main-header.fixed-header .header-upper {
+  background: #f7f9fd;
+}
