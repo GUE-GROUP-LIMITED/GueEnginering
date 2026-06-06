@@ -2,6 +2,8 @@ import { sideBarToggle } from "@/utility";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 
+const HEADER_LOGO = "assets/images/logos/logo-withbg.png";
+
 const Header = ({ header }) => {
   switch (header) {
     case 1:
@@ -26,7 +28,7 @@ const Header1 = () => {
                 <Link href="/">
 
                   <img
-                    src="assets/images/logos/logo.png"
+                    src={HEADER_LOGO}
                     alt="Logo"
                     title="Logo"
                   />
@@ -35,7 +37,7 @@ const Header1 = () => {
               </div>
             </div>
             <div className="nav-outer clearfix">
-              <MobileMenu logo={"assets/images/logos/logo.png"} />
+              <MobileMenu logo={HEADER_LOGO} />
               {/* Main Menu */}
               <nav className="main-menu d-none d-lg-block navbar-expand-lg">
                 <div className="navbar-header">
@@ -43,7 +45,7 @@ const Header1 = () => {
                     <Link href="/">
 
                       <img
-                        src="assets/images/logos/logo.png"
+                        src={HEADER_LOGO}
                         alt="Logo"
                         title="Logo"
                       />
@@ -166,14 +168,14 @@ const Header2 = () => {
                 <Link href="/">
 
                   <img
-                    src="assets/images/logos/logo.png"
+                    src={HEADER_LOGO}
                     alt="Logo"
                     title="Logo"
                     className="logo dark-logo"
                   />
                   <img
                     className="light-logo logo"
-                    src="assets/images/logos/logo.png"
+                    src={HEADER_LOGO}
                     alt="Logo"
                     title="Logo"
                   />
@@ -190,7 +192,7 @@ const Header2 = () => {
                     <Link href="/">
 
                       <img
-                        src="assets/images/logos/logo.png"
+                        src={HEADER_LOGO}
                         alt="Logo"
                         title="Logo"
                       />
@@ -267,7 +269,7 @@ const DefaultHeader = () => {
                 <Link href="/">
 
                   <img
-                    src="assets/images/logos/logo.png"
+                    src={HEADER_LOGO}
                     alt="Logo"
                     title="Logo"
                   />
@@ -284,7 +286,7 @@ const DefaultHeader = () => {
                     <Link href="/">
 
                       <img
-                        src="assets/images/logos/logo.png"
+                        src={HEADER_LOGO}
                         alt="Logo"
                         title="Logo"
                       />
