@@ -1,0 +1,13 @@
+{
+  "name": "gue-engineering-root",
+  "private": true,
+  "workspaces": [
+    "React Template"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w gue-engineering",
+    "build": "npm run build -w gue-engineering",
+    "start": "npm run start -w gue-engineering",
+    "lint": "npm run lint -w gue-engineering"
+  }
+}
