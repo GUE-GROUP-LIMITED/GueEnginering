@@ -2,7 +2,7 @@
   "name": "gue-engineering-root",
   "private": true,
   "workspaces": [
-    "React Template"
+    "react-template"
   ],
   "scripts": {
     "dev": "npm run dev -w gue-engineering",
