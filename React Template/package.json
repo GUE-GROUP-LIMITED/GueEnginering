@@ -22,5 +22,8 @@
   },
   "overrides": {
     "postcss": "^8.5.10"
+  },
+  "devDependencies": {
+    "vercel": "^54.9.1"
   }
 }
