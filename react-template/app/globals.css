@@ -609,6 +609,25 @@ body {
   padding: 28px;
 }
 
+.gue-home__project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.gue-home__project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.9), rgba(103, 235, 251, 0));
+}
+
+.gue-home__project-card--internal::before {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
+}
+
 .gue-home__service-card {
   position: relative;
   overflow: hidden;
@@ -731,6 +750,74 @@ body {
   justify-content: space-between;
   gap: 14px;
   margin-bottom: 14px;
+}
+
+.gue-home__project-preview {
+  margin-bottom: 16px;
+  border: 1px solid var(--gue-cyan-border);
+  border-radius: 12px;
+  background: rgba(9, 20, 33, 0.65);
+  overflow: hidden;
+}
+
+.gue-home__project-card--internal .gue-home__project-preview {
+  border-color: rgba(245, 158, 11, 0.25);
+  background: rgba(35, 26, 12, 0.4);
+}
+
+.gue-home__project-preview-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--gue-cyan-border);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.gue-home__project-card--internal .gue-home__project-preview-bar {
+  border-bottom-color: rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.gue-home__project-preview-bar span {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(168, 188, 206, 0.7);
+}
+
+.gue-home__project-preview-body {
+  min-height: 60px;
+  padding: 12px 14px;
+  background:
+    linear-gradient(120deg, rgba(34, 211, 238, 0.1) 0%, rgba(9, 20, 33, 0) 65%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(168, 188, 206, 0.08),
+      rgba(168, 188, 206, 0.08) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+}
+
+.gue-home__project-card--internal .gue-home__project-preview-body {
+  background:
+    linear-gradient(120deg, rgba(245, 158, 11, 0.14) 0%, rgba(35, 26, 12, 0) 65%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(168, 188, 206, 0.08),
+      rgba(168, 188, 206, 0.08) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+}
+
+.gue-home__project-preview-body p {
+  color: var(--gue-gray-light);
+  font-family: var(--gue-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .gue-home__project-brand {
