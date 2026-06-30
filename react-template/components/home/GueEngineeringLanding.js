@@ -246,8 +246,28 @@ const getProjectDomain = (href) =>
 const getProjectFavicon = (href) =>
   `https://www.google.com/s2/favicons?domain=${getProjectDomain(href)}&sz=64`;
 
+const sortProjectsByDomain = (a, b) =>
+  getProjectDomain(a.href).localeCompare(getProjectDomain(b.href));
+
 const renderProjectCard = (project) => (
-  <article key={project.title} className="gue-home__project-card">
+  <article
+    key={project.title}
+    className={`gue-home__project-card ${
+      project.tags.includes("Internal")
+        ? "gue-home__project-card--internal"
+        : "gue-home__project-card--client"
+    }`}
+  >
+    <div className="gue-home__project-preview" aria-hidden="true">
+      <div className="gue-home__project-preview-bar">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="gue-home__project-preview-body">
+        <p>{getProjectDomain(project.href)}</p>
+      </div>
+    </div>
     <div className="gue-home__project-head">
       <div className="gue-home__project-brand" aria-hidden="true">
         <img
@@ -274,6 +294,9 @@ const renderProjectCard = (project) => (
     </div>
   </article>
 );
+
+const sortedClientProjects = [...clientProjects].sort(sortProjectsByDomain);
+const sortedInternalProjects = [...internalProjects].sort(sortProjectsByDomain);
 
 const GueEngineeringLanding = () => {
   return (
@@ -500,13 +523,17 @@ const GueEngineeringLanding = () => {
           <p className="gue-home__section-copy">
             A sample of client deliveries and internal Gue Group websites.
           </p>
-          <p className="gue-home__kicker gue-home__kicker--compact">Client Websites</p>
+          <p className="gue-home__kicker gue-home__kicker--compact">
+            Client Websites ({sortedClientProjects.length})
+          </p>
           <div className="gue-home__projects-grid">
-            {clientProjects.map((project) => renderProjectCard(project))}
+            {sortedClientProjects.map((project) => renderProjectCard(project))}
           </div>
-          <p className="gue-home__kicker gue-home__kicker--compact">Internal Gue Group Websites</p>
+          <p className="gue-home__kicker gue-home__kicker--compact">
+            Internal Gue Group Websites ({sortedInternalProjects.length})
+          </p>
           <div className="gue-home__projects-grid">
-            {internalProjects.map((project) => renderProjectCard(project))}
+            {sortedInternalProjects.map((project) => renderProjectCard(project))}
           </div>
         </section>
 
