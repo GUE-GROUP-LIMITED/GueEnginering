@@ -216,7 +216,6 @@ const navItems = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#history", label: "History" },
-  { href: "#team", label: "Team" },
   { href: "https://www.guegroup.com", label: "Gue Group", external: true },
 ];
 
@@ -224,7 +223,6 @@ const footerLinks = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#history", label: "History" },
-  { href: "#team", label: "Team" },
 ];
 
 const groupLinks = [
@@ -535,42 +533,6 @@ const GueEngineeringLanding = () => {
           <div className="gue-home__projects-grid">
             {sortedInternalProjects.map((project) => renderProjectCard(project))}
           </div>
-        </section>
-
-        <section id="team" className="gue-home__section gue-home__section--alt">
-          <p className="gue-home__kicker">Leadership</p>
-          <h2 className="gue-home__section-title">Founder-Led Delivery</h2>
-          <p className="gue-home__section-copy">
-            A focused team means direct communication and accountable delivery on every
-            engagement.
-          </p>
-          <article className="gue-home__team-card">
-            <div className="gue-home__team-avatar">GA</div>
-            <h3>Gabriel Aloho</h3>
-            <p className="gue-home__team-role">Founder & Technology Lead</p>
-            <p className="gue-home__team-bio">
-              Founded Code-Snippet Enterprise in 2020 and led its growth into GUE
-              Engineering Limited. MSc in Information Security & Digital Forensics
-              (UEL). Full-stack software engineer with hands-on experience in .NET,
-              Blazor, React, and cloud infrastructure.
-            </p>
-            <div className="gue-home__team-links">
-              <a
-                href="https://www.linkedin.com/in/gabriel-aloho/"
-                className="gue-home__button gue-home__button--ghost"
-                {...externalProps}
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://www.gabrielaloho.com"
-                className="gue-home__button gue-home__button--ghost"
-                {...externalProps}
-              >
-                gabrielaloho.com
-              </a>
-            </div>
-          </article>
         </section>
 
         <section className="gue-home__group-section">
