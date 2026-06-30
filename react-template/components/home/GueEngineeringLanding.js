@@ -90,31 +90,125 @@ const history = [
 
 const projects = [
   {
-    icon: "🛡️",
-    title: "GueInsight — Threat Intelligence Platform",
-    description:
-      "Subscription-based threat intelligence and security awareness platform built for Gue Cyber, covering threat feeds, security scoring, and compliance dashboards.",
-    href: "https://insights.guecyber.com",
+    icon: "🏨",
+    title: "eloheemsuites.com.ng",
+    description: "Hospitality website delivery for Eloheem Suites (Nigeria domain).",
+    href: "https://eloheemsuites.com.ng",
     label: "Live",
-    tags: ["React", "Flask", "Supabase"],
+    tags: ["Client", "Website"],
+  },
+  {
+    icon: "🏨",
+    title: "eloheemsuites.com",
+    description: "Hospitality website delivery for Eloheem Suites (global domain).",
+    href: "https://eloheemsuites.com",
+    label: "Live",
+    tags: ["Client", "Website"],
+  },
+  {
+    icon: "🏨",
+    title: "eyahshotel.com",
+    description: "Hospitality brand website and digital presence implementation.",
+    href: "https://eyahshotel.com",
+    label: "Live",
+    tags: ["Client", "Website"],
+  },
+  {
+    icon: "🌍",
+    title: "thebig.com.ng",
+    description: "Public-facing business website designed and delivered for growth.",
+    href: "https://thebig.com.ng",
+    label: "Live",
+    tags: ["Client", "Website"],
+  },
+  {
+    icon: "🧭",
+    title: "youthtransformation.org",
+    description: "Organization website supporting outreach and programme visibility.",
+    href: "https://youthtransformation.org",
+    label: "Live",
+    tags: ["Client", "Website"],
+  },
+  {
+    icon: "🔒",
+    title: "guecyber.com",
+    description: "Internal Gue Group website for cybersecurity operations and brand.",
+    href: "https://guecyber.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
+  },
+  {
+    icon: "🏘️",
+    title: "brainsestate.com",
+    description: "Real estate platform website focused on listings and visibility.",
+    href: "https://brainsestate.com",
+    label: "Live",
+    tags: ["Client", "Website"],
+  },
+  {
+    icon: "👤",
+    title: "yengeraphael.com",
+    description: "Personal/professional website build with a clean digital profile.",
+    href: "https://yengeraphael.com",
+    label: "Live",
+    tags: ["Client", "Website"],
+  },
+  {
+    icon: "🏭",
+    title: "gueindustries.com",
+    description: "Internal Gue Group website for industrial and operations identity.",
+    href: "https://gueindustries.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
+  },
+  {
+    icon: "⚙️",
+    title: "gueengineering.com",
+    description: "Internal Gue Group website for GUE Engineering brand presence.",
+    href: "https://gueengineering.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
+  },
+  {
+    icon: "🏢",
+    title: "guerealty.com",
+    description: "Internal Gue Group realty website for property-focused initiatives.",
+    href: "https://guerealty.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
   },
   {
     icon: "🔐",
-    title: "guecyber.ng — Corporate Website",
+    title: "guecyber.ng",
     description:
-      "Production React/Vite website for Gue Cyber Limited in Nigeria, covering services, training programmes, and CBT center information.",
-    href: "https://www.guecyber.ng",
+      "Internal Gue Group website for Gue Cyber Nigeria service and training presence.",
+    href: "https://guecyber.ng",
     label: "Live",
-    tags: ["React", "Vite", "Vercel"],
+    tags: ["Internal", "Gue Group"],
   },
   {
-    icon: "🍕",
-    title: "ContosoPizza — Full-Stack .NET 9",
-    description:
-      "Full-stack application combining ASP.NET Core Web API, Blazor, .NET MAUI cross-platform flows, and MongoDB storage.",
-    href: "https://github.com/gabaloho/myContosoPizza",
-    label: "GitHub",
-    tags: [".NET 9", "Blazor", "MAUI"],
+    icon: "🎓",
+    title: "guevte.com",
+    description: "Internal Gue Group website for vocational and technical education.",
+    href: "https://guevte.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
+  },
+  {
+    icon: "🌱",
+    title: "guesmartfarming.com",
+    description: "Internal Gue Group website for smart farming initiatives.",
+    href: "https://guesmartfarming.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
+  },
+  {
+    icon: "🚗",
+    title: "guemobility.com",
+    description: "Internal Gue Group website for mobility-focused solutions.",
+    href: "https://guemobility.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
   },
 ];
 
@@ -142,6 +236,9 @@ const externalProps = {
   target: "_blank",
   rel: "noreferrer",
 };
+
+const clientProjects = projects.filter((project) => !project.tags.includes("Internal"));
+const internalProjects = projects.filter((project) => project.tags.includes("Internal"));
 
 const GueEngineeringLanding = () => {
   return (
@@ -366,10 +463,31 @@ const GueEngineeringLanding = () => {
           <p className="gue-home__kicker">What We Build</p>
           <h2 className="gue-home__section-title">Selected Work</h2>
           <p className="gue-home__section-copy">
-            A sample of the engineering work delivered across the group.
+            A sample of client deliveries and internal Gue Group websites.
           </p>
+          <p className="gue-home__kicker gue-home__kicker--compact">Client Websites</p>
           <div className="gue-home__projects-grid">
-            {projects.map((project) => (
+            {clientProjects.map((project) => (
+              <article key={project.title} className="gue-home__project-card">
+                <div className="gue-home__project-head">
+                  <span className="gue-home__project-icon">{project.icon}</span>
+                  <a href={project.href} {...externalProps}>
+                    {project.label}
+                  </a>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="gue-home__tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="gue-home__kicker gue-home__kicker--compact">Internal Gue Group Websites</p>
+          <div className="gue-home__projects-grid">
+            {internalProjects.map((project) => (
               <article key={project.title} className="gue-home__project-card">
                 <div className="gue-home__project-head">
                   <span className="gue-home__project-icon">{project.icon}</span>
