@@ -1,330 +1,115 @@
-﻿import Layout from "@/layout/Layout";
-import PageBanner from "@/layout/PageBanner";
 import Link from "next/link";
-const Services = () => {
+import Layout from "@/layout/Layout";
+import PageBanner from "@/layout/PageBanner";
+
+const services = [
+  {
+    title: "Software Development",
+    description:
+      "Custom web platforms, internal tools, APIs, and business systems designed for maintainability and steady iteration.",
+  },
+  {
+    title: "AI-Powered Automation",
+    description:
+      "Automation flows, AI assistants, and operational tooling that reduce repetitive manual work and improve consistency.",
+  },
+  {
+    title: "SaaS & Open-Source Solutions",
+    description:
+      "Product design and implementation support for SaaS platforms and engineering tools, from architecture to release.",
+  },
+  {
+    title: "DevOps & Cloud Engineering",
+    description:
+      "Infrastructure setup, CI/CD pipelines, deployment automation, and environment design for reliable delivery.",
+  },
+  {
+    title: "IT Training",
+    description:
+      "Practical technical training for individuals and teams across software development, tooling, and delivery practices.",
+  },
+  {
+    title: "Technical Consulting",
+    description:
+      "Architecture reviews, delivery planning, and direct engineering input for teams making important technical decisions.",
+  },
+];
+
+const process = [
+  "Discovery and requirements clarification",
+  "Architecture and solution design",
+  "Implementation and iterative review",
+  "Release, documentation, and support",
+];
+
+const ServicesPage = () => {
   return (
     <Layout>
-      <PageBanner
-        titleHtml={`Popular Se<span>rvices</span>`}
-        titleText="Popular Services"
-      />
-      <section className="statistics-area-five py-130">
-        <div className="container">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-lg-6">
-              <div className="statistics-five-content mb-30 rmb-65 wow fadeInRight delay-0-2s">
-                <div className="section-title mb-25">
-                  <span className="sub-title style-two mb-15">
-                    Company Statistics
-                  </span>
-                  <h2>
-                    Delivering secure, scalable engineering solutions for
-                    modern businesses.
-                  </h2>
-                </div>
-                <p>
-                  We design, build and scale software platforms with cloud-native
-                  architecture, DevOps automation and AI-enabled workflows to
-                  accelerate growth across industries.
-                </p>
-                <Link href="/about" className="theme-btn mt-15">
-                  Learn More <i className="fas fa-angle-double-right" />
+      <PageBanner titleHtml={`Se<span>rvices</span>`} titleText="Services" />
 
-                </Link>
-              </div>
+      <section className="gue-page-section">
+        <div className="gue-page-section__header">
+          <p className="gue-page-section__kicker">What We Do</p>
+          <h2 className="gue-page-section__title">Delivery-focused engineering services</h2>
+          <p className="gue-page-section__copy">
+            We work across product development, automation, cloud delivery, and team
+            capability building, with a bias toward practical outcomes and manageable systems.
+          </p>
+        </div>
+
+        <div className="gue-page-card-grid">
+          {services.map((service) => (
+            <article key={service.title} className="gue-page-card">
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="gue-page-section gue-page-section--alt">
+        <div className="gue-page-two-col">
+          <div>
+            <div className="gue-page-section__header">
+              <p className="gue-page-section__kicker">Engagement Model</p>
+              <h2 className="gue-page-section__title">Clear process, controlled delivery</h2>
+              <p className="gue-page-section__copy">
+                We do not overcomplicate delivery. The goal is to reduce ambiguity, ship
+                responsibly, and keep the technical path understandable for your team.
+              </p>
             </div>
-            <div className="col-lg-6">
-              <div className="statistics-five-image wow fadeInLeft delay-0-2s">
-                <img
-                  src="assets/images/about/statistics-five.png"
-                  alt="Statistics"
-                />
-              </div>
-            </div>
+          </div>
+          <div className="gue-page-detail-list">
+            {process.map((step, index) => (
+              <article key={step} className="gue-page-detail">
+                <div className="gue-page-detail__icon">0{index + 1}</div>
+                <div>
+                  <p className="gue-page-detail__label">Step {index + 1}</p>
+                  <p className="gue-page-detail__value">{step}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-      {/* Statistics Five Area end */}
-      {/* Working Process Area start */}
-      <section className="work-process-area pb-95 rel z-1">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <div className="section-title text-center mb-55 wow fadeInUp delay-0-2s">
-                <span className="sub-title style-two mb-15">
-                  Working Process
-                </span>
-                <h2>How We Work</h2>
-              </div>
-            </div>
-          </div>
-          <div className="work-process-wrap rel z-1">
-            <div className="row justify-content-between">
-              <div className="col-xl-3 col-lg-5 col-sm-6">
-                <div className="work-process-item mt-30 wow fadeInUp delay-0-2s">
-                  <div className="icon">
-                    <span className="number">01</span>
-                    <i className="flaticon-optimization" />
-                  </div>
-                  <h4>Discovery &amp; Assessment</h4>
-                  <p>We evaluate your current systems, requirements and delivery goals.</p>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-5 col-sm-6">
-                <div className="work-process-item wow fadeInUp delay-0-4s">
-                  <div className="icon">
-                    <span className="number">02</span>
-                    <i className="flaticon-link" />
-                  </div>
-                  <h4>Solution Architecture</h4>
-                  <p>We design scalable software, cloud and automation blueprints.</p>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-5 col-sm-6">
-                <div className="work-process-item mt-55 wow fadeInUp delay-0-6s">
-                  <div className="icon">
-                    <span className="number">03</span>
-                    <i className="flaticon-data" />
-                  </div>
-                  <h4>Build &amp; Integrate</h4>
-                  <p>Our team develops, integrates and validates every core component.</p>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-5 col-sm-6">
-                <div className="work-process-item mt-45 wow fadeInUp delay-0-8s">
-                  <div className="icon">
-                    <span className="number">04</span>
-                    <i className="flaticon-star" />
-                  </div>
-                  <h4>Launch &amp; Optimize</h4>
-                  <p>We deploy, monitor and continuously improve service performance.</p>
-                </div>
-              </div>
-            </div>
-            <div className="work-process-shape">
-              <img
-                src="assets/images/shapes/worp-process-step.png"
-                alt="Shape"
-              />
-            </div>
+
+      <section className="gue-page-section">
+        <div className="gue-page-cta">
+          <p className="gue-page-section__kicker">Start Here</p>
+          <h2>Have a service need that needs scoping first?</h2>
+          <p>
+            Send the problem, constraints, and expected outcome. We can advise on the
+            right engagement before work starts.
+          </p>
+          <div className="gue-page-actions" style={{ justifyContent: "center" }}>
+            <Link href="/contact" className="gue-page-button">
+              Request a Consultation
+            </Link>
           </div>
         </div>
       </section>
-      {/* Working Process Area end */}
-      {/* Services Area start */}
-      <section className="services-area-four bgc-black pt-130 pb-100">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-8 col-lg-10">
-              <div className="section-title text-center text-white mb-60 wow fadeInUp delay-0-2s">
-                <span className="sub-title style-two mb-20">
-                  Services We Provide
-                </span>
-                <h2>Core Engineering Services</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-xl-4 col-md-6">
-              <div className="service-item-four wow fadeInUp delay-0-2s">
-                <div className="image">
-                  <img
-                    src="assets/images/services/service-four1.png"
-                    alt="Service"
-                  />
-                </div>
-                <h5>Software Engineering and Product Development</h5>
-                <Link href="/service-details" className="theme-btn style-three">
-                  Service Details <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="service-item-four wow fadeInUp delay-0-4s">
-                <div className="image">
-                  <img
-                    src="assets/images/services/service-four2.png"
-                    alt="Service"
-                  />
-                </div>
-                <h5>AI-Powered Automation and Workflow Intelligence</h5>
-                <Link href="/service-details" className="theme-btn style-three">
-                  Service Details <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="service-item-four wow fadeInUp delay-0-6s">
-                <div className="image">
-                  <img
-                    src="assets/images/services/service-four3.png"
-                    alt="Service"
-                  />
-                </div>
-                <h5>SaaS Platform Design, Build and Scale</h5>
-                <Link href="/service-details" className="theme-btn style-three">
-                  Service Details <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="service-item-four wow fadeInUp delay-0-2s">
-                <div className="image">
-                  <img
-                    src="assets/images/services/service-four4.png"
-                    alt="Service"
-                  />
-                </div>
-                <h5>DevOps Engineering and CI/CD Enablement</h5>
-                <Link href="/service-details" className="theme-btn style-three">
-                  Service Details <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="service-item-four wow fadeInUp delay-0-4s">
-                <div className="image">
-                  <img
-                    src="assets/images/services/service-four5.png"
-                    alt="Service"
-                  />
-                </div>
-                <h5>Cloud Infrastructure and Platform Reliability</h5>
-                <Link href="/service-details" className="theme-btn style-three">
-                  Service Details <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="service-item-four wow fadeInUp delay-0-6s">
-                <div className="image">
-                  <img
-                    src="assets/images/services/service-four6.png"
-                    alt="Service"
-                  />
-                </div>
-                <h5>Technical Training and Capability Development</h5>
-                <Link href="/service-details" className="theme-btn style-three">
-                  Service Details <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Services Area end */}
-      {/* Pricing Area start */}
-      <section className="pricing-area py-130 rel z-1">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-8 col-lg-10">
-              <div className="section-title text-center mb-55 wow fadeInUp delay-0-2s">
-                <span className="sub-title style-two mb-20">Pricing Plan</span>
-                <h2>Best Pricing Package</h2>
-              </div>
-            </div>
-          </div>
-          <div className="pricing-plan-item wow fadeInUp delay-0-2s">
-            <div className="price-features">
-              <h4>Basic Plan</h4>
-              <ul className="list-style-two">
-                <li>Landing page design (10 pages)</li>
-                <li>Domain and hosting setup</li>
-                <li>React, Vue, HTML &amp; CSS frontends</li>
-                <li>Online support (24/7)</li>
-                <li>Social Media Marketing</li>
-                <li>.NET, REST API, Blazor, Django &amp; Flask apps</li>
-              </ul>
-              <span className="badge">popular</span>
-            </div>
-            <div className="price-and-btn">
-              <div className="content">
-                <span className="price">248</span>
-                <span className="save">
-                  Save<span> 25%</span>
-                </span>
-                <Link href="/pricing" className="theme-btn style-three">
-                  Choose Package <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="pricing-plan-item wow fadeInUp delay-0-2s">
-            <div className="price-features">
-              <h4>Standard Plan</h4>
-              <ul className="list-style-two">
-                <li>Landing page design (10 pages)</li>
-                <li>Domain and hosting setup</li>
-                <li>React, Vue, HTML &amp; CSS frontends</li>
-                <li>Online support (24/7)</li>
-                <li>Social Media Marketing</li>
-                <li>.NET, REST API, Blazor, Django &amp; Flask apps</li>
-              </ul>
-              <span className="badge">popular</span>
-            </div>
-            <div className="price-and-btn">
-              <div className="content">
-                <span className="price">452</span>
-                <span className="save">
-                  Save<span> 43%</span>
-                </span>
-                <Link href="/pricing" className="theme-btn style-three">
-                  Choose Package <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="pricing-plan-item wow fadeInUp delay-0-2s">
-            <div className="price-features">
-              <h4>Premium Plan</h4>
-              <ul className="list-style-two">
-                <li>Landing page design (10 pages)</li>
-                <li>Domain and hosting setup</li>
-                <li>React, Vue, HTML &amp; CSS frontends</li>
-                <li>Online support (24/7)</li>
-                <li>Social Media Marketing</li>
-                <li>.NET, REST API, Blazor, Django &amp; Flask apps</li>
-              </ul>
-              <span className="badge">popular</span>
-            </div>
-            <div className="price-and-btn">
-              <div className="content">
-                <span className="price">683</span>
-                <span className="save">
-                  Save<span> 66%</span>
-                </span>
-                <Link href="/pricing" className="theme-btn style-three">
-                  Choose Package <i className="fas fa-angle-double-right" />
-
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="wave-shapes">
-          <img
-            className="shape one"
-            src="assets/images/shapes/pricing-light1.png"
-            alt="Wave Shape"
-          />
-          <img
-            className="shape two"
-            src="assets/images/shapes/pricing-light2.png"
-            alt="Wave Shape"
-          />
-        </div>
-      </section>
-      {/* Pricing Area end */}
     </Layout>
   );
 };
-export default Services;
 
+export default ServicesPage;

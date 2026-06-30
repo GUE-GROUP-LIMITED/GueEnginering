@@ -1,81 +1,85 @@
-﻿"use client";
-
-import ProgressBar from "@/components/ProgressBar";
+import Link from "next/link";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
-import dynamic from "next/dynamic";
 
-const TeamIsotope = dynamic(() => import("@/components/Isotope/TeamIsotope"), {
-  ssr: false,
-});
+const capabilities = [
+  "Full-stack application engineering",
+  "Cloud infrastructure and deployment automation",
+  "AI workflow automation and systems integration",
+  "Technical training and engineering guidance",
+];
 
-const Team = () => {
+const TeamPage = () => {
   return (
     <Layout>
-      <PageBanner
-        titleHtml={`Expert <span>Team</span>`}
-        titleText="Expert Team"
-      />
-      <section className="support-marketing-area py-130 rel z-1">
-        <div className="container">
-          <div className="row large-gap justify-content-between align-items-center">
-            <div className="col-lg-6">
-              <div className="support-marketing-progress rmb-65 wow fadeInLeft delay-0-2s">
-                <div className="section-title mb-35">
-                  <span className="sub-title style-two mb-15">Best Skills</span>
-                  <h2>We are Much Experience in Website Design</h2>
-                </div>
-                <p>
-                  Fortunately, we arenâ€™t just designers and developers hereâ€”we
-                  are writers, strategists, techs and creatives, all working
-                  towards the same end goal: our clientâ€™s success. As a
-                  full-service digital marketing agency
-                </p>
-                <div className="circle-counter">
-                  <div className="circle-progress-item">
-                    <ProgressBar value={89} color="#3180fc" />
-                    <h5>SEO Service</h5>
-                  </div>
-                  <div className="circle-progress-item">
-                    <ProgressBar value={76} color="#f1b000" />
-                    <h5>Copywriting</h5>
-                  </div>
-                  <div className="circle-progress-item">
-                    <ProgressBar value={63} color="#16b4f2" />
-                    <h5>PPC</h5>
-                  </div>
-                </div>
-              </div>
+      <PageBanner titleHtml={`Leade<span>rship</span>`} titleText="Team" />
+
+      <section className="gue-page-section">
+        <div className="gue-page-two-col">
+          <article className="gue-page-card">
+            <p className="gue-page-section__kicker">Founder-Led Delivery</p>
+            <h3>Gabriel Aloho</h3>
+            <p>
+              Founder and technology lead behind Code-Snippet Enterprise and GUE
+              Engineering Limited. Gabriel leads delivery across software engineering,
+              architecture, automation, and cloud infrastructure.
+            </p>
+            <p>
+              His background includes full-stack engineering across .NET, Blazor, React,
+              and practical cloud delivery, with academic grounding in information
+              security and digital forensics.
+            </p>
+            <div className="gue-page-actions">
+              <a
+                href="https://www.linkedin.com/in/gabriel-aloho/"
+                className="gue-page-button"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://www.gabrielaloho.com"
+                className="gue-page-button gue-page-button--ghost"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Personal Site
+              </a>
             </div>
-            <div className="col-lg-6">
-              <div className="best-skills-image wow fadeInRight delay-0-2s">
-                <img
-                  src="assets/images/about/best-skills.jpg"
-                  alt="Best Skills"
-                />
-              </div>
-            </div>
+          </article>
+
+          <div className="gue-page-detail-list">
+            {capabilities.map((capability, index) => (
+              <article key={capability} className="gue-page-detail">
+                <div className="gue-page-detail__icon">0{index + 1}</div>
+                <div>
+                  <p className="gue-page-detail__label">Capability</p>
+                  <p className="gue-page-detail__value">{capability}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-      {/* Support & Marketing Area start */}
-      {/* Team Area start */}
-      <section className="team-page-area pb-65 rel z-1">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-6 col-lg-7">
-              <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
-                <span className="sub-title style-two mb-15">Amazing Team</span>
-                <h2>We Have a Highly Experienced Team</h2>
-              </div>
-            </div>
+
+      <section className="gue-page-section gue-page-section--alt">
+        <div className="gue-page-cta">
+          <p className="gue-page-section__kicker">Working Style</p>
+          <h2>Smaller team, shorter communication path</h2>
+          <p>
+            The operating model is intentionally lean. That reduces handoff friction and
+            keeps technical conversations closer to the people making implementation decisions.
+          </p>
+          <div className="gue-page-actions" style={{ justifyContent: "center" }}>
+            <Link href="/contact" className="gue-page-button">
+              Discuss an Engagement
+            </Link>
           </div>
-          <TeamIsotope />
         </div>
       </section>
-      {/* Team Area end */}
     </Layout>
   );
 };
-export default Team;
 
+export default TeamPage;

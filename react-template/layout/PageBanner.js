@@ -1,40 +1,27 @@
 import Link from "next/link";
 const PageBanner = ({ titleHtml, titleText }) => {
   return (
-    <section className="page-banner-area pt-245 rpt-150 pb-170 rpb-100 rel z-1 bgc-lighter text-center">
-      <div className="container">
-        <div className="banner-inner rpt-10">
+    <section className="gue-page-hero">
+      <div className="gue-page-hero__glow" />
+      <div className="gue-page-hero__grid" />
+      <div className="gue-page-hero__inner">
+        <p className="gue-page-hero__kicker">GUE Engineering</p>
+        <div className="gue-page-hero__content">
           <h1
-            className="page-title wow fadeInUp delay-0-2s"
+            className="gue-page-hero__title"
             dangerouslySetInnerHTML={{ __html: titleHtml }}
           ></h1>
           <nav aria-label="breadcrumb">
-            <ol className="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-              <li className="breadcrumb-item">
+            <ol className="gue-page-hero__breadcrumb">
+              <li>
                 <Link href="/">
-                  home
+                  Home
                 </Link>
               </li>
-              <li className="breadcrumb-item active">{titleText}</li>
+              <li>{titleText}</li>
             </ol>
           </nav>
-        </div>
       </div>
-      <div className="banner-shapes">
-        <div
-          className="circle wow zoomInLeft delay-0-2s"
-          data-wow-duration="2s"
-        />
-        <img
-          className="shape-one"
-          src="assets/images/shapes/hero-shape1.png"
-          alt="Shape"
-        />
-        <img
-          className="shape-two"
-          src="assets/images/shapes/hero-shape2.png"
-          alt="Shape"
-        />
       </div>
     </section>
   );

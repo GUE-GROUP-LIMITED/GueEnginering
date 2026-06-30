@@ -1,287 +1,110 @@
-﻿"use client";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
-const Contact = () => {
+
+const contactDetails = [
+  {
+    label: "Email",
+    value: "hello@gueengineering.com",
+    href: "mailto:hello@gueengineering.com",
+  },
+  {
+    label: "Projects",
+    value: "projects@gueengineering.com",
+    href: "mailto:projects@gueengineering.com",
+  },
+  {
+    label: "Phone",
+    value: "+234 904 115 7068",
+    href: "tel:+2349041157068",
+  },
+  {
+    label: "Location",
+    value: "Abuja, Federal Capital Territory, Nigeria",
+  },
+];
+
+const ContactPage = () => {
   return (
     <Layout>
-      <PageBanner titleHtml={`Contact <span>Us</span>`} titleText="Contact" />
-      <section className="contact-us-page-area py-130">
-        <div className="container">
-          <div className="row align-items-end justify-content-between">
-            <div className="col-lg-7">
-              <div className="contact-content rmb-65 wow fadeInRight delay-0-2s">
-                <div className="section-title mb-25">
-                  <span className="sub-title style-two mb-15">Contact Us</span>
-                  <h2>
-                    Let us start your next engineering project together
-                  </h2>
-                </div>
-                <p>
-                  Tell us about your project goals, timelines and technical requirements. Our team will review your request and share a practical delivery approach tailored to your business.
-                </p>
-                <form
-                  onSubmit={(e) => e.preventDefault()}
-                  id="contactForm"
-                  className="contactForm z-1 rel"
-                >
-                  <div className="row pt-15">
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label htmlFor="name">Full Name</label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          className="form-control"
-                          defaultValue=""
-                          placeholder="Michael C. Coleman"
-                          required=""
-                          data-error="Please enter your name"
-                        />
-                        <div className="help-block with-errors" />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label htmlFor="email">Email Address</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          className="form-control"
-                          defaultValue=""
-                          placeholder="contact@gueengineering.com"
-                          required=""
-                          data-error="Please enter your Email"
-                        />
-                        <div className="help-block with-errors" />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label htmlFor="phone_number">Phone Number</label>
-                        <input
-                          type="text"
-                          id="phone_number"
-                          name="phone_number"
-                          className="form-control"
-                          defaultValue=""
-                          placeholder="0904 115 7068"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label htmlFor="select_subject">
-                          Select Requirements
-                        </label>
-                        <select name="select_subject" id="select_subject" defaultValue="default">
-                          <option value="default">
-                            Service inquiry
-                          </option>
-                          <option value="Architecture">Architecture</option>
-                          <option value="Development">Software Development</option>
-                          <option value="CloudOps">Cloud &amp; DevOps</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <label htmlFor="message">Write Message</label>
-                        <textarea
-                          name="message"
-                          id="message"
-                          className="form-control"
-                          rows={4}
-                          placeholder="Write Message"
-                          required=""
-                          data-error="Please enter your Message"
-                          defaultValue={""}
-                        />
-                        <div className="help-block with-errors" />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group pt-5 mb-0">
-                        <button type="submit" className="theme-btn w-100">
-                          Send Message{" "}
-                          <i className="fas fa-angle-double-right" />
-                        </button>
-                        <div id="msgSubmit" className="hidden" />
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
+      <PageBanner titleHtml={`Conta<span>ct</span>`} titleText="Contact" />
+
+      <section className="gue-page-section">
+        <div className="gue-page-two-col">
+          <div>
+            <div className="gue-page-section__header">
+              <p className="gue-page-section__kicker">Get Started</p>
+              <h2 className="gue-page-section__title">Tell us what you need to build or fix</h2>
+              <p className="gue-page-section__copy">
+                Share the business problem, delivery target, timeline, and anything already
+                in place. We can respond with a realistic starting point.
+              </p>
             </div>
-            <div className="col-xl-4 col-lg-5">
-              <div className="contact-info wow fadeInLeft delay-0-2s">
-                <div className="contact-info-item style-two">
-                  <div className="icon">
-                    <i className="fal fa-map-marker-alt" />
-                  </div>
-                  <div className="content">
-                    <span className="title">Location</span>
-                    <span className="text">
-                      HVCH+7MM, Behind Township Hall, Wannune 981107, Benue,
-                      Nigeria
-                    </span>
-                  </div>
+
+            <form className="gue-page-form" action="#">
+              <div className="gue-page-form-grid">
+                <div>
+                  <label htmlFor="name">Full name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
                 </div>
-                <div className="contact-info-item style-two">
-                  <div className="icon">
-                    <i className="far fa-envelope-open-text" />
-                  </div>
-                  <div className="content">
-                    <span className="title">Email Address</span>
-                    <span className="text">
-                      <a href="mailto:contact@gueengineering.com">
-                        contact@gueengineering.com
-                      </a>
-                      <br />
-                      <a href="mailto:projects@gueengineering.com">
-                        projects@gueengineering.com
-                      </a>
-                    </span>
-                  </div>
+                <div>
+                  <label htmlFor="email">Email address</label>
+                  <input id="email" name="email" type="email" placeholder="you@company.com" required />
                 </div>
-                <div className="contact-info-item style-two">
-                  <div className="icon">
-                    <i className="far fa-phone" />
-                  </div>
-                  <div className="content">
-                    <span className="title">Phone Number</span>
-                    <span className="text">
-                      Call <a href="tel:+2349041157068">0904 115 7068</a>
-                      <br />
-                      WhatsApp: 0904 115 7068
-                    </span>
-                  </div>
+                <div>
+                  <label htmlFor="phone">Phone number</label>
+                  <input id="phone" name="phone" type="text" placeholder="+234 ..." />
                 </div>
-                <div className="follow-us">
-                  <h4>Follow Us</h4>
-                  <div className="social-style-two">
-                    <a href="#">
-                      <i className="fab fa-facebook-f" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-twitter" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-linkedin-in" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-behance" />
-                    </a>
-                  </div>
+                <div>
+                  <label htmlFor="service">Primary need</label>
+                  <select id="service" name="service" defaultValue="Software Development">
+                    <option>Software Development</option>
+                    <option>AI Automation</option>
+                    <option>SaaS & Open-Source</option>
+                    <option>DevOps & Cloud Engineering</option>
+                    <option>IT Training</option>
+                    <option>Technical Consulting</option>
+                  </select>
                 </div>
               </div>
-            </div>
+
+              <div>
+                <label htmlFor="message">Project brief</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  placeholder="Describe the problem, expected outcome, timeline, and any existing systems."
+                  required
+                />
+              </div>
+
+              <button type="submit" className="gue-page-button">
+                Send Inquiry
+              </button>
+              <p className="gue-page-form-note">
+                This form is currently a visual placeholder. For immediate contact, email
+                hello@gueengineering.com.
+              </p>
+            </form>
+          </div>
+
+          <div className="gue-page-detail-list">
+            {contactDetails.map((item) => (
+              <article key={item.label} className="gue-page-detail">
+                <div className="gue-page-detail__icon">•</div>
+                <div>
+                  <p className="gue-page-detail__label">{item.label}</p>
+                  <p className="gue-page-detail__value">
+                    {item.href ? <a href={item.href}>{item.value}</a> : item.value}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-      {/* Contact Us Page Area end */}
-      {/* Our Location Address Area start */}
-      <section className="our-location-address-area rel z-1">
-        <div className="container">
-          <div className="row medium-gap justify-content-center">
-            <div className="col-lg-4 col-md-6">
-              <div className="location-address-item wow fadeInUp delay-0-2s">
-                <div className="top-part">
-                  <img
-                    src="assets/images/contact/location1.png"
-                    alt="Location"
-                  />
-                  <h5>Benue Office</h5>
-                </div>
-                <div className="bottom-part">
-                  <ul>
-                    <li>
-                      <i className="fal fa-map-marker-alt" /> HVCH+7MM,
-                      Behind Township Hall, Wannune 981107, Benue, Nigeria
-                    </li>
-                    <li>
-                      <i className="far fa-envelope-open-text" />{" "}
-                      contact@gueengineering.com
-                    </li>
-                    <li>
-                      <i className="far fa-phone" /> 0904 115 7068
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="location-address-item wow fadeInUp delay-0-4s">
-                <div className="top-part">
-                  <img
-                    src="assets/images/contact/location2.png"
-                    alt="Location"
-                  />
-                  <h5>Benue Office</h5>
-                </div>
-                <div className="bottom-part">
-                  <ul>
-                    <li>
-                      <i className="fal fa-map-marker-alt" /> HVCH+7MM,
-                      Behind Township Hall, Wannune 981107, Benue, Nigeria
-                    </li>
-                    <li>
-                      <i className="far fa-envelope-open-text" />{" "}
-                      projects@gueengineering.com
-                    </li>
-                    <li>
-                      <i className="far fa-phone" /> 0904 115 7068
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="location-address-item wow fadeInUp delay-0-6s">
-                <div className="top-part">
-                  <img
-                    src="assets/images/contact/location3.png"
-                    alt="Location"
-                  />
-                  <h5>Benue Office</h5>
-                </div>
-                <div className="bottom-part">
-                  <ul>
-                    <li>
-                      <i className="fal fa-map-marker-alt" /> HVCH+7MM,
-                      Behind Township Hall, Wannune 981107, Benue, Nigeria
-                    </li>
-                    <li>
-                      <i className="far fa-envelope-open-text" />{" "}
-                      support@gueengineering.com
-                    </li>
-                    <li>
-                      <i className="far fa-phone" /> 0904 115 7068
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Our Location Address Area end */}
-      {/* Location Map Area Start */}
-      <div className="contact-page-map wow fadeInUp delay-0-2s">
-        <div className="our-location">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m12!1m10!1m3!1d142190.2862584524!2d-74.01298319978558!3d40.721725351435126!2m1!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1663473911885!5m2!1sen!2sbd"
-            style={{ border: 0, width: "100%" }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-      </div>
-      {/* Location Map Area End */}
     </Layout>
   );
 };
-export default Contact;
 
+export default ContactPage;

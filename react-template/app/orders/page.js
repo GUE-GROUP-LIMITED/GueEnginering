@@ -4,13 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
-const badgeClassByStatus = {
-  success: "bg-success text-white",
-  failed: "bg-danger text-white",
-  initialized: "bg-warning",
-  pending: "bg-secondary text-white",
-};
-
 const formatDate = (value) => {
   if (!value) return "-";
   const date = new Date(value);
@@ -28,7 +21,7 @@ const formatAmount = (order) => {
   return "-";
 };
 
-const Orders = () => {
+const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -44,8 +37,7 @@ const Orders = () => {
           throw new Error(payload.error || "Unable to load orders.");
         }
 
-        const items = Array.isArray(payload.orders) ? payload.orders : [];
-        setOrders(items);
+        setOrders(Array.isArray(payload.orders) ? payload.orders : []);
       } catch (fetchError) {
         setError(fetchError.message || "Unable to load orders.");
       } finally {
@@ -68,65 +60,67 @@ const Orders = () => {
 
   return (
     <Layout>
-      <PageBanner titleHtml={`Order <span>Dashboard</span>`} titleText="Orders" />
-      <section className="py-130 rel z-1">
-        <div className="container">
-          <div className="section-title mb-35">
-            <span className="sub-title style-two mb-15">Payments</span>
-            <h2>Order and Payment Records</h2>
-          </div>
+      <PageBanner titleHtml={`Ord<span>ers</span>`} titleText="Orders" />
 
-          {isLoading && <p>Loading orders...</p>}
-          {!isLoading && error && <p>{error}</p>}
-
-          {!isLoading && !error && (
-            <div className="table-responsive">
-              <table className="table table-bordered align-middle">
-                <thead>
-                  <tr>
-                    <th>Reference</th>
-                    <th>Plan</th>
-                    <th>Billing</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Email</th>
-                    <th>Updated</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sortedOrders.length === 0 && (
-                    <tr>
-                      <td colSpan={7}>No orders found yet.</td>
-                    </tr>
-                  )}
-
-                  {sortedOrders.map((order) => {
-                    const status = (order.status || "pending").toLowerCase();
-                    const badgeClass =
-                      badgeClassByStatus[status] || "bg-secondary text-white";
-
-                    return (
-                      <tr key={order.reference || `${order.createdAt}-${order.updatedAt}`}>
-                        <td>{order.reference || "-"}</td>
-                        <td>{order.plan || "-"}</td>
-                        <td>{order.billing || "-"}</td>
-                        <td>{formatAmount(order)}</td>
-                        <td>
-                          <span className={`badge ${badgeClass}`}>{status}</span>
-                        </td>
-                        <td>{order.customerEmail || order.email || "-"}</td>
-                        <td>{formatDate(order.updatedAt || order.createdAt || order.paidAt)}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          )}
+      <section className="gue-page-section">
+        <div className="gue-page-section__header">
+          <p className="gue-page-section__kicker">Payments</p>
+          <h2 className="gue-page-section__title">Order and payment records</h2>
+          <p className="gue-page-section__copy">
+            This dashboard lists payment attempts and verified order activity from the current API.
+          </p>
         </div>
+
+        {isLoading && <p className="gue-page-section__copy">Loading orders...</p>}
+        {!isLoading && error && <p className="gue-page-section__copy">{error}</p>}
+
+        {!isLoading && !error && (
+          <div className="gue-orders-table-wrap">
+            <table className="gue-orders-table">
+              <thead>
+                <tr>
+                  <th>Reference</th>
+                  <th>Plan</th>
+                  <th>Billing</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Email</th>
+                  <th>Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedOrders.length === 0 && (
+                  <tr>
+                    <td colSpan={7}>No orders found yet.</td>
+                  </tr>
+                )}
+
+                {sortedOrders.map((order) => {
+                  const status = (order.status || "pending").toLowerCase();
+
+                  return (
+                    <tr key={order.reference || `${order.createdAt}-${order.updatedAt}`}>
+                      <td>{order.reference || "-"}</td>
+                      <td>{order.plan || "-"}</td>
+                      <td>{order.billing || "-"}</td>
+                      <td>{formatAmount(order)}</td>
+                      <td>
+                        <span className={`gue-orders-badge gue-orders-badge--${status}`}>
+                          {status}
+                        </span>
+                      </td>
+                      <td>{order.customerEmail || order.email || "-"}</td>
+                      <td>{formatDate(order.updatedAt || order.createdAt || order.paidAt)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
     </Layout>
   );
 };
 
-export default Orders;
+export default OrdersPage;

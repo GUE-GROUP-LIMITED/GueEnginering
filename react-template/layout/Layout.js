@@ -1,43 +1,15 @@
-"use client";
-import { animation, stickyNav } from "@/utility";
-import { Fragment, useEffect } from "react";
-import niceSelect from "react-nice-select";
-import CallToAction from "../components/CallToAction";
-import ImageView from "../components/ImageView";
-import VideoPopup from "../components/VideoPopup";
+import { Fragment } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import ScrollTop from "./ScrollTop";
-import SideBar from "./SideBar";
 
 const Layout = ({ children, header, className, footer, noHeader }) => {
-  const fixedClassName = "home-one";
-  const fixedHeader = 1;
-  const fixedFooter = 1;
-
-  useEffect(() => {
-    animation();
-    document.querySelector("body").className = fixedClassName;
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", stickyNav);
-  }, []);
-  useEffect(() => {
-    return () => {
-      niceSelect({ withoutwide: true });
-    };
-  }, []);
   return (
     <Fragment>
-      <VideoPopup />
-      <ImageView />
-      <div className="page-wrapper">
-        {!noHeader && <Header header={fixedHeader} />}
-        <SideBar />
+      <div className="gue-shell">
+        {!noHeader && <Header header={header} />}
         {children}
-        {!fixedFooter && <CallToAction />}
-        <Footer footer={fixedFooter} />
+        <Footer footer={footer} />
         <ScrollTop />
       </div>
     </Fragment>

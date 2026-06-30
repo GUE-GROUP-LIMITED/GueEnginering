@@ -1,7 +1,14 @@
+"use client";
+
 const ScrollTop = () => {
   return (
-    <button className="scroll-top scroll-to-target" data-target="html">
-      <span className="fas fa-angle-double-up" />
+    <button
+      type="button"
+      className="gue-scroll-top"
+      aria-label="Scroll to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    >
+      ↑
     </button>
   );
 };

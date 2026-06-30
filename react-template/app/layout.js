@@ -1,19 +1,9 @@
 import "./globals.css";
 
-import "@assets/css/animate.min.css";
-import "@assets/css/bootstrap.min.css";
-import "@assets/css/flaticon.min.css";
-import "@assets/css/fontawesome-5.14.0.min.css";
-import "@assets/css/jquery.animatedheadline.css";
-import "@assets/css/magnific-popup.min.css";
-import "@assets/css/nice-select.min.css";
-import "@assets/css/slick.min.css";
-import "@assets/css/style.css";
-
 export const metadata = {
-  title: "GUE Engineering Limited",
+  title: "GUE Engineering Limited | Software, AI Automation & DevOps — Nigeria",
   description:
-    "GUE Engineering Limited specializes in software development, AI-powered automation, SaaS, DevOps engineering, cloud infrastructure, and technical training across Africa.",
+    "GUE Engineering Limited specializes in software development, AI-powered automation, SaaS and open-source solutions, DevOps and cloud engineering, and IT training in Nigeria.",
 };
 
 export default function RootLayout({ children }) {
