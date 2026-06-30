@@ -240,6 +240,41 @@ const externalProps = {
 const clientProjects = projects.filter((project) => !project.tags.includes("Internal"));
 const internalProjects = projects.filter((project) => project.tags.includes("Internal"));
 
+const getProjectDomain = (href) =>
+  href.replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0];
+
+const getProjectFavicon = (href) =>
+  `https://www.google.com/s2/favicons?domain=${getProjectDomain(href)}&sz=64`;
+
+const renderProjectCard = (project) => (
+  <article key={project.title} className="gue-home__project-card">
+    <div className="gue-home__project-head">
+      <div className="gue-home__project-brand" aria-hidden="true">
+        <img
+          src={getProjectFavicon(project.href)}
+          alt=""
+          className="gue-home__project-favicon"
+          loading="lazy"
+        />
+        <span className="gue-home__project-icon">{project.icon}</span>
+      </div>
+      <a href={project.href} {...externalProps}>
+        {project.label}
+      </a>
+    </div>
+    <h3>{project.title}</h3>
+    <a href={project.href} className="gue-home__project-domain" {...externalProps}>
+      {getProjectDomain(project.href)}
+    </a>
+    <p>{project.description}</p>
+    <div className="gue-home__tags">
+      {project.tags.map((tag) => (
+        <span key={tag}>{tag}</span>
+      ))}
+    </div>
+  </article>
+);
+
 const GueEngineeringLanding = () => {
   return (
     <div className="gue-home">
@@ -467,43 +502,11 @@ const GueEngineeringLanding = () => {
           </p>
           <p className="gue-home__kicker gue-home__kicker--compact">Client Websites</p>
           <div className="gue-home__projects-grid">
-            {clientProjects.map((project) => (
-              <article key={project.title} className="gue-home__project-card">
-                <div className="gue-home__project-head">
-                  <span className="gue-home__project-icon">{project.icon}</span>
-                  <a href={project.href} {...externalProps}>
-                    {project.label}
-                  </a>
-                </div>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="gue-home__tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
+            {clientProjects.map((project) => renderProjectCard(project))}
           </div>
           <p className="gue-home__kicker gue-home__kicker--compact">Internal Gue Group Websites</p>
           <div className="gue-home__projects-grid">
-            {internalProjects.map((project) => (
-              <article key={project.title} className="gue-home__project-card">
-                <div className="gue-home__project-head">
-                  <span className="gue-home__project-icon">{project.icon}</span>
-                  <a href={project.href} {...externalProps}>
-                    {project.label}
-                  </a>
-                </div>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="gue-home__tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
+            {internalProjects.map((project) => renderProjectCard(project))}
           </div>
         </section>
 

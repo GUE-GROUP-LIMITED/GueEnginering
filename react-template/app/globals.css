@@ -733,12 +733,40 @@ body {
   margin-bottom: 14px;
 }
 
+.gue-home__project-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gue-home__project-favicon {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  object-fit: cover;
+  border: 1px solid var(--gue-cyan-border);
+  background: rgba(245, 248, 255, 0.05);
+}
+
 .gue-home__project-head a {
   border: 1px solid var(--gue-cyan-border);
   border-radius: 999px;
   padding: 6px 12px;
   font-family: var(--gue-font-mono);
   font-size: 0.72rem;
+}
+
+.gue-home__project-domain {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--gue-cyan);
+  font-family: var(--gue-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+}
+
+.gue-home__project-domain:hover {
+  color: #67ebfb;
 }
 
 .gue-home__team-card {
