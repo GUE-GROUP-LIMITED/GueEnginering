@@ -13,7 +13,10 @@ const Header = () => {
     <header className="gue-shell-header">
       <div className="gue-shell-header__inner">
         <Link href="/" className="gue-shell-header__logo">
-          GUE <span>Engineering</span>
+          <img src="/brand/logo.png" alt="GUE Engineering logo" />
+          <span>
+            GUE <em>Engineering</em>
+          </span>
         </Link>
 
         <nav className="gue-shell-header__nav" aria-label="Primary navigation">

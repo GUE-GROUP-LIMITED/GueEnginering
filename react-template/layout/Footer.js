@@ -21,7 +21,10 @@ const Footer = () => {
       <div className="gue-shell-footer__inner">
         <div>
           <Link href="/" className="gue-shell-footer__brand">
-            GUE <span>Engineering</span>
+            <img src="/brand/logo.png" alt="GUE Engineering logo" />
+            <span>
+              GUE <em>Engineering</em>
+            </span>
           </Link>
           <p className="gue-shell-footer__copy">
             Software, AI automation, SaaS and open-source delivery, DevOps and

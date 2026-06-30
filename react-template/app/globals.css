@@ -4,6 +4,10 @@
 html {
   scroll-behavior: smooth !important;
 }
+
+body {
+  margin: 0;
+}
 /* .navigation li ul,
 .navigation li ul li.dropdown ul {
   display: block !important;
@@ -109,6 +113,9 @@ html {
 .gue-home ul,
 .gue-home li {
   margin: 0;
+}
+
+.gue-home ul {
   padding: 0;
 }
 
@@ -133,6 +140,9 @@ html {
 
 .gue-home__logo,
 .gue-home__footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--gue-font-head);
   font-size: 1.1rem;
   font-weight: 800;
@@ -140,9 +150,29 @@ html {
   letter-spacing: -0.02em;
 }
 
+.gue-home__logo img,
+.gue-home__footer-brand img,
+.gue-shell-header__logo img,
+.gue-shell-footer__brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .gue-home__logo span,
-.gue-home__footer-brand span {
+.gue-home__footer-brand span,
+.gue-shell-header__logo span,
+.gue-shell-footer__brand span {
+  color: var(--gue-white);
+}
+
+.gue-home__logo em,
+.gue-home__footer-brand em,
+.gue-shell-header__logo em,
+.gue-shell-footer__brand em {
   color: var(--gue-cyan);
+  font-style: normal;
 }
 
 .gue-home__nav-links {
@@ -953,16 +983,14 @@ html {
 
 .gue-shell-header__logo,
 .gue-shell-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: #f5f8ff;
   font-family: "Syne", sans-serif;
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-}
-
-.gue-shell-header__logo span,
-.gue-shell-footer__brand span {
-  color: #22d3ee;
 }
 
 .gue-shell-header__nav,

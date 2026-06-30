@@ -149,7 +149,10 @@ const GueEngineeringLanding = () => {
       <header className="gue-home__nav-shell">
         <nav className="gue-home__nav">
           <a href="#top" className="gue-home__logo">
-            GUE <span>Engineering</span>
+            <img src="/brand/logo.png" alt="GUE Engineering logo" />
+            <span>
+              GUE <em>Engineering</em>
+            </span>
           </a>
 
           <ul className="gue-home__nav-links" aria-label="Primary navigation">
@@ -475,7 +478,10 @@ const GueEngineeringLanding = () => {
         <div className="gue-home__footer-top">
           <div>
             <p className="gue-home__footer-brand">
-              GUE <span>Engineering</span>
+                <img src="/brand/logo.png" alt="GUE Engineering logo" />
+                <span>
+                  GUE <em>Engineering</em>
+                </span>
             </p>
             <p className="gue-home__footer-copy">
               Software · AI Automation · DevOps & Cloud · IT Training · Nigeria
