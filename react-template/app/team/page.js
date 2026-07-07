@@ -17,12 +17,13 @@ const TeamPage = () => {
       <section className="gue-page-section">
         <div className="gue-page-two-col">
           <article className="gue-page-card">
-            <p className="gue-page-section__kicker">Founder-Led Delivery</p>
+            <p className="gue-page-section__kicker">Team-Led Delivery</p>
             <h3>Gabriel Aloho</h3>
             <p>
-              Founder and technology lead behind Code-Snippet Enterprise and GUE
-              Engineering Limited. Gabriel leads delivery across software engineering,
-              architecture, automation, and cloud infrastructure.
+              Technology lead at Code-Snippet Enterprise and GUE Engineering Limited,
+              working with a broader team of software engineers and technical staff.
+              Gabriel supports delivery across software engineering, architecture,
+              automation, and cloud infrastructure.
             </p>
             <p>
               His background includes full-stack engineering across .NET, Blazor, React,

@@ -426,7 +426,7 @@ const GueEngineeringLanding = () => {
                 company, we formally upgraded to a private limited liability company.
               </p>
               <p>
-                Today we operate as a focused, founder-led engineering practice, building
+                Today we operate as a focused engineering team, building
                 software, automating workflows with AI, and helping teams ship reliably
                 on modern cloud infrastructure.
               </p>

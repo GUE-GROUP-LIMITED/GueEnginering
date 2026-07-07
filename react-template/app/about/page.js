@@ -18,7 +18,7 @@ const principles = [
   {
     title: "Direct accountability",
     description:
-      "Founder-led delivery means technical decisions, timelines, and tradeoffs are handled with less handoff noise.",
+      "Team-led delivery means technical decisions, timelines, and tradeoffs are handled with less handoff noise.",
   },
   {
     title: "Practical modernization",

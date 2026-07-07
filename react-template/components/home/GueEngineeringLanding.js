@@ -27,7 +27,7 @@ const services = [
     icon: "🏦",
     title: "UBA Moni Agency Banking",
     description:
-      "We are a certified UBA Moni Super Agent with a network of agents across Tarka, Benue State. Bring banking to your community — cash deposits, withdrawals, transfers, account opening, BVN enrolment, and bill payments.",
+      "Certified UBA Moni Super Agent services focused on retail banking access and financial inclusion across Tarka, Benue State, including deposits, withdrawals, transfers, account opening, BVN enrolment, and bill payments in line with applicable programme and regulatory requirements.",
     highlight: true,
   },
   {
@@ -94,11 +94,11 @@ const history = [
       "Code-Snippet Enterprise formally upgraded to a private limited liability company under CAMA 2020, becoming a subsidiary of Gue Group Limited with objects covering software development, AI automation, SaaS, DevOps, and IT training.",
   },
   {
-    year: "2025",
+    year: "2026",
     company: "UBA Moni Super Agent",
-    role: "CERTIFIED SUPER AGENT · TARKA, BENUE STATE",
+    role: "OPERATIONAL ONBOARDING · MARCH 2026 · TARKA, BENUE STATE",
     description:
-      "GUE Engineering Limited became a certified UBA Moni Super Agent, building a network of financial access points across Tarka, Benue State — bringing banking services including cash deposits, withdrawals, transfers, account opening, and BVN enrolment to underserved communities.",
+      "Following terminal dispatch communication on 27 March 2026 and process-flow training on 31 March 2026, GUE Engineering Limited commenced structured UBA Moni Super Agent operations to expand safe and reliable banking access for underserved communities.",
   },
 ];
 
@@ -426,7 +426,7 @@ const GueEngineeringLanding = () => {
                 company, we formally upgraded to a private limited liability company.
               </p>
               <p>
-                Today we operate as a focused, founder-led engineering practice, building
+                Today we operate as a focused engineering team, building
                 software, automating workflows with AI, and helping teams ship reliably
                 on modern cloud infrastructure.
               </p>
@@ -509,12 +509,12 @@ const GueEngineeringLanding = () => {
         <section id="uba-moni" className="gue-home__section">
           <p className="gue-home__kicker">Financial Services Partnership</p>
           <h2 className="gue-home__section-title">
-            UBA Moni Super Agent — Bringing Banking to Tarka
+            UBA Moni Super Agent — Retail Banking & Financial Inclusion
           </h2>
           <p className="gue-home__section-copy">
-            GUE Engineering Limited is a certified UBA Moni Super Agent with a network of
-            agents operating across Tarka, Benue State — connecting communities to trusted
-            banking services without a traditional branch.
+            GUE Engineering Limited delivers UBA Moni agency banking services in Tarka,
+            Benue State, helping individuals and small businesses access essential retail
+            banking services in areas with limited branch coverage.
           </p>
 
           <div className="gue-home__moni-grid">
@@ -525,20 +525,28 @@ const GueEngineeringLanding = () => {
                 <div>
                   <p className="gue-home__moni-badge-title">Official UBA Moni Super Agent</p>
                   <p className="gue-home__moni-badge-sub">
-                    Certified by United Bank for Africa (UBA) · Tarka, Benue State
+                    Certified by United Bank for Africa (UBA) · Operational onboarding completed March 2026
                   </p>
                 </div>
               </div>
+              <figure className="gue-home__moni-media">
+                <img
+                  src="/brand/ubamoni.webp"
+                  alt="UBA Moni agency banking terminal"
+                  className="gue-home__moni-image"
+                  loading="lazy"
+                />
+              </figure>
               <p className="gue-home__moni-copy">
                 UBA Moni is United Bank for Africa&apos;s agency banking platform — designed
-                to extend financial services to communities without a bank branch nearby.
-                Through our network of certified agents across Tarka, residents and businesses
-                can access a full range of banking transactions at their doorstep.
+                to extend formal financial services to communities without nearby bank
+                branches. Through our certified agent network in Tarka, residents and local
+                businesses can complete everyday banking transactions closer to home.
               </p>
               <p className="gue-home__moni-copy">
-                As a Super Agent, we do not just operate a single POS point — we onboard,
-                train, and supervise a network of agents across the area, earning commissions
-                on every transaction processed across the network.
+                As a Super Agent, we onboard, train, and supervise agents using a structured
+                operational model for terminal assignment, process-flow support, and service
+                quality across participating locations.
               </p>
               <a
                 href="https://www.ubagroup.com/nigeria/personal-banking/uba-moni/"
@@ -546,19 +554,19 @@ const GueEngineeringLanding = () => {
                 rel="noreferrer"
                 className="gue-home__moni-link"
               >
-                Learn about UBA Moni →
+                View UBA Moni programme details →
               </a>
             </div>
 
             {/* Services grid */}
             <div className="gue-home__moni-services">
               {[
-                { icon: "💵", title: "Cash Deposits & Withdrawals", desc: "Accept deposits and process withdrawals for customers across Tarka — instantly settled." },
-                { icon: "📲", title: "Money Transfers", desc: "Intra and interbank transfers to over 500 financial institutions via the UBA Moni app." },
-                { icon: "🆔", title: "Account Opening", desc: "Open a new UBA account with instant BVN/NIN verification — no branch visit needed." },
-                { icon: "🔢", title: "BVN Enrolment", desc: "Register for Bank Verification Number directly through our certified agent points." },
-                { icon: "📄", title: "Bill Payments", desc: "Pay utility bills, airtime, data, and more — available at all agent locations." },
-                { icon: "📶", title: "Pay by Transfer", desc: "Customers can transfer directly from their accounts to the agent — fast and secure." },
+                { icon: "💵", title: "Cash Deposit and Withdrawal Services", desc: "Secure processing of deposits and withdrawals through authorized UBA Moni agent points in Tarka." },
+                { icon: "📲", title: "Funds Transfer Services", desc: "Intra-bank and inter-bank transfer support across participating financial institutions." },
+                { icon: "🆔", title: "Account Opening Support", desc: "Support for eligible customers to open UBA accounts with required identity verification." },
+                { icon: "🔢", title: "BVN Enrolment Support", desc: "Access to BVN registration support through approved and supervised agent locations." },
+                { icon: "📄", title: "Bills and Digital Payments", desc: "Payment support for utilities and selected digital services available on the platform." },
+                { icon: "📶", title: "Account-to-Agent Transfer", desc: "Customers can complete eligible transfers directly to agent channels for service processing." },
               ].map((s) => (
                 <div key={s.title} className="gue-home__moni-service-card">
                   <span className="gue-home__moni-service-icon">{s.icon}</span>
@@ -578,32 +586,30 @@ const GueEngineeringLanding = () => {
               <div>
                 <p className="gue-home__moni-impact-title">Financial Inclusion in Tarka</p>
                 <p className="gue-home__moni-impact-desc">
-                  Many residents of Tarka and surrounding communities travel long distances to
-                  reach a bank branch. Our UBA Moni agent network brings essential banking
-                  to the community.
+                  Our service model supports access to essential banking transactions for
+                  communities with limited proximity to traditional bank branches.
                 </p>
               </div>
             </div>
             <div className="gue-home__moni-impact-item">
               <span className="gue-home__moni-impact-icon">🔗</span>
               <div>
-                <p className="gue-home__moni-impact-title">How It Connects to Our Tech Work</p>
+                <p className="gue-home__moni-impact-title">Operational Reliability and Support</p>
                 <p className="gue-home__moni-impact-desc">
-                  Our engineering and IT background means we understand the digital
-                  infrastructure behind agency banking — and can support our agents with
-                  technology troubleshooting, device management, and training that most
-                  Super Agents cannot provide.
+                  Our team provides structured onboarding, terminal assignment coordination,
+                  process-flow guidance, and technical support to strengthen service
+                  consistency across the agent network.
                 </p>
               </div>
             </div>
             <div className="gue-home__moni-impact-item">
               <span className="gue-home__moni-impact-icon">📈</span>
               <div>
-                <p className="gue-home__moni-impact-title">Earn Over ₦1M Per Year</p>
+                <p className="gue-home__moni-impact-title">Agent Business Opportunity</p>
                 <p className="gue-home__moni-impact-desc">
-                  UBA Moni agents earn commissions on every transaction — instantly paid.
-                  As a Super Agent, GUE Engineering also earns commission on every transaction
-                  processed by the agents in our network.
+                  UBA Moni agents can earn transaction-based commissions according to
+                  applicable programme terms. As Super Agent, GUE Engineering supports
+                  compliant and sustainable growth of agent activity across the network.
                 </p>
               </div>
             </div>
@@ -612,14 +618,15 @@ const GueEngineeringLanding = () => {
           {/* Become an agent CTA */}
           <div className="gue-home__moni-cta">
             <div>
-              <p className="gue-home__moni-cta-title">Want to Become a UBA Moni Agent in Tarka?</p>
+              <p className="gue-home__moni-cta-title">Become a UBA Moni Agent in Tarka</p>
               <p className="gue-home__moni-cta-sub">
-                We can onboard you as a UBA Moni agent through our Super Agent network.
-                You need a CAC-registered business or a valid ID, and we handle the rest.
+                We support eligible applicants through onboarding requirements and operational
+                setup under our Super Agent network in line with programme guidelines,
+                KYC expectations, and applicable regulatory requirements.
               </p>
             </div>
             <a href="#contact" className="gue-home__moni-cta-btn">
-              Join Our Agent Network →
+              Request Agent Onboarding →
             </a>
           </div>
         </section>
