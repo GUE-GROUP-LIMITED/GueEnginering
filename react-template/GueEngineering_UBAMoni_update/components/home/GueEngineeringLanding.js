@@ -635,7 +635,7 @@ const GueEngineeringLanding = () => {
           </p>
           <div className="gue-home__timeline">
             {history.map((item) => (
-              <article key={`${item.year}-${item.company}`} className="gue-home__timeline-item">
+              <article key={item.year} className="gue-home__timeline-item">
                 <div className="gue-home__timeline-year">{item.year}</div>
                 <div className="gue-home__timeline-body">
                   <span className="gue-home__timeline-dot" />
