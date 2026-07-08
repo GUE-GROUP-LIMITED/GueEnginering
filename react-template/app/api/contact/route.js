@@ -16,6 +16,22 @@ function sanitize(value) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function buildFallbackLead({ name, email, phone, service, message }) {
+  const now = new Date().toISOString();
+  return {
+    id: `fallback-${Date.now()}`,
+    createdAt: now,
+    updatedAt: now,
+    status: "new",
+    name,
+    email,
+    phone,
+    service,
+    message,
+    source: "website-contact-form",
+  };
+}
+
 export async function POST(request) {
   try {
     const payload = await request.json();
@@ -54,14 +70,21 @@ export async function POST(request) {
       );
     }
 
-    const lead = await addContactLead({
-      name,
-      email,
-      phone,
-      service,
-      message,
-      source: "website-contact-form",
-    });
+    let lead;
+
+    try {
+      lead = await addContactLead({
+        name,
+        email,
+        phone,
+        service,
+        message,
+        source: "website-contact-form",
+      });
+    } catch (storageError) {
+      console.error("Contact lead storage failed:", storageError);
+      lead = buildFallbackLead({ name, email, phone, service, message });
+    }
 
     await sendContactLeadNotification(lead);
 
