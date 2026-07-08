@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { addContactLead } from "@/lib/contactLeadsStore";
+import { sendContactLeadNotification } from "@/lib/contactNotifier";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ALLOWED_SERVICES = new Set([
@@ -61,6 +62,8 @@ export async function POST(request) {
       message,
       source: "website-contact-form",
     });
+
+    await sendContactLeadNotification(lead);
 
     return NextResponse.json({
       success: true,
