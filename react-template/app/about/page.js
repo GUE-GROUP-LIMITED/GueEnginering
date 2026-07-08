@@ -14,6 +14,7 @@ export const metadata = {
     description:
       "Team-led engineering delivery for software, automation, and cloud modernization in Nigeria.",
     url: "/about",
+    images: ["/brand/og-cover.svg"],
   },
 };
 

@@ -13,6 +13,7 @@ export const metadata = {
     description:
       "Examples of engineering delivery across applications, platforms, and cloud systems.",
     url: "/projects",
+    images: ["/brand/og-cover.svg"],
   },
 };
 

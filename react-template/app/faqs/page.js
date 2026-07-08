@@ -14,6 +14,7 @@ export const metadata = {
     description:
       "Straight answers about services, delivery process, support, and training from GUE Engineering.",
     url: "/faqs",
+    images: ["/brand/og-cover.svg"],
   },
 };
 

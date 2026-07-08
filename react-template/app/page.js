@@ -12,11 +12,13 @@ export const metadata = {
     description:
       "Engineering-led software delivery, AI-powered automation, and cloud operations in Nigeria.",
     url: "/",
+    images: ["/brand/og-cover.svg"],
   },
   twitter: {
     title: "Software, AI Automation & Cloud Engineering | GUE Engineering Limited",
     description:
       "Engineering-led software delivery, AI-powered automation, and cloud operations in Nigeria.",
+    images: ["/brand/og-cover.svg"],
   },
 };
 

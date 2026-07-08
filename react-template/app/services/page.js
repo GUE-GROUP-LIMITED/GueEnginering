@@ -16,6 +16,7 @@ export const metadata = {
     description:
       "Delivery-focused software, AI automation, cloud, and consulting services for modern teams.",
     url: "/services",
+    images: ["/brand/og-cover.svg"],
   },
 };
 

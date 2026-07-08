@@ -14,6 +14,7 @@ export const metadata = {
     description:
       "Team-led engineering delivery with practical capability across software, automation, and cloud.",
     url: "/team",
+    images: ["/brand/og-cover.svg"],
   },
 };
 

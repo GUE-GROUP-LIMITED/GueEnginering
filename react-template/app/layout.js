@@ -1,6 +1,7 @@
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.gueengineering.com";
+const ogImagePath = "/brand/og-cover.svg";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -67,10 +68,10 @@ export const metadata = {
       "Software development, AI-powered automation, SaaS and open-source delivery, DevOps and cloud engineering, and practical IT training in Nigeria.",
     images: [
       {
-        url: "/brand/logo.png",
-        width: 512,
-        height: 512,
-        alt: "GUE Engineering Limited logo",
+        url: ogImagePath,
+        width: 1200,
+        height: 630,
+        alt: "GUE Engineering Limited - Software, AI Automation and Cloud Engineering",
       },
     ],
   },
@@ -79,7 +80,7 @@ export const metadata = {
     title: "GUE Engineering Limited | Software, AI Automation & DevOps — Nigeria",
     description:
       "Software development, AI-powered automation, SaaS and open-source delivery, DevOps and cloud engineering, and practical IT training in Nigeria.",
-    images: ["/brand/logo.png"],
+    images: [ogImagePath],
   },
   robots: {
     index: true,

@@ -13,6 +13,7 @@ export const metadata = {
     description:
       "Share your project goals and constraints to start a software, automation, or cloud engineering engagement.",
     url: "/contact",
+    images: ["/brand/og-cover.svg"],
   },
 };
 
