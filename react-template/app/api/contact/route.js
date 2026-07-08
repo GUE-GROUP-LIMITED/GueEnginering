@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { addContactLead } from "@/lib/contactLeadsStore";
 import { sendContactLeadNotification } from "@/lib/contactNotifier";
 
+export const runtime = "nodejs";
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ALLOWED_SERVICES = new Set([
   "Software Development",
