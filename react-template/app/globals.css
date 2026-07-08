@@ -331,8 +331,8 @@ body {
 .gue-home__group-section,
 .gue-home__cta,
 .gue-home__footer {
-  padding-left: 6%;
-  padding-right: 6%;
+  padding-left: clamp(22px, 6%, 88px);
+  padding-right: clamp(22px, 6%, 88px);
 }
 
 .gue-home__hero {
@@ -341,8 +341,8 @@ body {
   min-height: calc(100vh - 82px);
   display: flex;
   align-items: center;
-  padding-top: 110px;
-  padding-bottom: 88px;
+  padding-top: 126px;
+  padding-bottom: 104px;
 }
 
 .gue-home__hero-glow {
@@ -450,15 +450,15 @@ body {
 
 .gue-home__hero-copy {
   max-width: 600px;
-  margin-top: 22px;
+  margin-top: 28px;
   font-size: 1.04rem;
 }
 
 .gue-home__hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 36px;
+  gap: 16px;
+  margin-top: 42px;
 }
 
 .gue-home__hero-actions--center {
@@ -474,7 +474,7 @@ body {
 }
 
 .gue-home__pills {
-  margin-top: 40px;
+  margin-top: 48px;
 }
 
 .gue-home__pills span,
@@ -517,8 +517,8 @@ body {
 
 .gue-home__section,
 .gue-home__group-section {
-  padding-top: 92px;
-  padding-bottom: 92px;
+  padding-top: 108px;
+  padding-bottom: 108px;
 }
 
 .gue-home__section--alt,
@@ -569,21 +569,21 @@ body {
 
 .gue-home__section-copy {
   max-width: 620px;
-  margin-top: 16px;
-  margin-bottom: 48px;
+  margin-top: 20px;
+  margin-bottom: 56px;
   font-size: 1rem;
 }
 
 .gue-home__about-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.95fr);
-  gap: 42px;
+  gap: 56px;
   align-items: start;
 }
 
 .gue-home__body-copy {
   display: grid;
-  gap: 18px;
+  gap: 22px;
 }
 
 .gue-home__body-copy strong {
@@ -653,14 +653,14 @@ body {
 .gue-home__projects-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
 .gue-home__service-card,
 .gue-home__project-card,
 .gue-home__team-card {
   border-radius: 18px;
-  padding: 28px;
+  padding: 34px;
 }
 
 .gue-home__project-card {
@@ -739,7 +739,7 @@ body {
 
 .gue-home__process-step {
   min-height: 100%;
-  padding: 30px 24px;
+  padding: 36px 28px;
   border-right: 1px solid var(--gue-cyan-border);
   background: rgba(15, 39, 71, 0.42);
 }
@@ -1452,7 +1452,7 @@ body {
 }
 
 .gue-page-section {
-  padding: 88px 6%;
+  padding: 104px clamp(22px, 6%, 88px);
 }
 
 .gue-page-section--alt {
@@ -1463,7 +1463,7 @@ body {
 
 .gue-page-section__header {
   max-width: 760px;
-  margin-bottom: 42px;
+  margin-bottom: 52px;
 }
 
 .gue-page-section__title,
@@ -1505,7 +1505,7 @@ body {
 .gue-page-card-grid,
 .gue-page-two-col {
   display: grid;
-  gap: 20px;
+  gap: 24px;
 }
 
 .gue-page-grid {
@@ -1532,7 +1532,7 @@ body {
 .gue-page-detail,
 .gue-page-form,
 .gue-page-cta {
-  padding: 28px;
+  padding: 34px;
 }
 
 .gue-page-card-grid {
@@ -1546,7 +1546,7 @@ body {
 }
 
 .gue-page-stat {
-  padding: 24px;
+  padding: 28px;
 }
 
 .gue-page-stat__value {
@@ -1561,7 +1561,7 @@ body {
 
 .gue-page-detail-list {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .gue-page-detail {
@@ -1583,7 +1583,7 @@ body {
 
 .gue-page-form {
   display: grid;
-  gap: 18px;
+  gap: 22px;
 }
 
 .gue-page-form-grid {
@@ -1709,8 +1709,8 @@ body {
 .gue-page-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 28px;
+  gap: 18px;
+  margin-top: 36px;
 }
 
 .gue-page-cta {
@@ -1736,8 +1736,8 @@ body {
 @media (max-width: 680px) {
   .gue-page-hero,
   .gue-page-section {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 22px;
+    padding-right: 22px;
   }
 
   .gue-page-card-grid,
@@ -1750,7 +1750,7 @@ body {
   .gue-page-detail,
   .gue-page-form,
   .gue-page-cta {
-    padding: 24px;
+    padding: 26px;
   }
 }
 
@@ -1758,8 +1758,8 @@ body {
 .gue-home__moni-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 52px;
+  margin-bottom: 52px;
 }
 
 /* Badge */
@@ -1791,7 +1791,7 @@ body {
   font-size: 0.9rem;
   line-height: 1.8;
   color: var(--gue-white, #f5f8ff);
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .gue-home__moni-media {
@@ -1824,13 +1824,13 @@ body {
 .gue-home__moni-services {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 .gue-home__moni-service-card {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 14px 16px;
+  gap: 16px;
+  padding: 18px 20px;
   background: rgba(15, 42, 92, 0.82);
   border: 1px solid rgba(0, 180, 216, 0.34);
   border-radius: 6px;
@@ -1856,14 +1856,14 @@ body {
 .gue-home__moni-impact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-bottom: 36px;
+  gap: 24px;
+  margin-bottom: 44px;
 }
 .gue-home__moni-impact-item {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   align-items: flex-start;
-  padding: 18px;
+  padding: 22px;
   background: rgba(15, 42, 92, 0.82);
   border: 1px solid rgba(0, 180, 216, 0.34);
   border-radius: 8px;
@@ -1886,9 +1886,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 30px;
   flex-wrap: wrap;
-  padding: 28px 32px;
+  padding: 36px 40px;
   background: rgba(0, 102, 204, 0.05);
   border: 1px solid rgba(0, 102, 204, 0.18);
   border-radius: 10px;
