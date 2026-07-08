@@ -82,6 +82,9 @@ export const metadata = {
       "Software development, AI-powered automation, SaaS and open-source delivery, DevOps and cloud engineering, and practical IT training in Nigeria.",
     images: [ogImagePath],
   },
+  verification: {
+    google: "google2c15aca631c839cd",
+  },
   robots: {
     index: true,
     follow: true,
