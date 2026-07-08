@@ -42,3 +42,16 @@ export async function addContactLead(lead) {
 
   return savedLead;
 }
+
+export async function listContactLeads({ limit = 50 } = {}) {
+  const leads = await readLeads();
+  const safeLimit = Math.max(1, Math.min(Number(limit) || 50, 200));
+
+  return [...leads]
+    .sort((a, b) => {
+      const aTime = new Date(a.createdAt || 0).getTime();
+      const bTime = new Date(b.createdAt || 0).getTime();
+      return bTime - aTime;
+    })
+    .slice(0, safeLimit);
+}
