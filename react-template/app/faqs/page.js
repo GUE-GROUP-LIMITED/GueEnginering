@@ -2,6 +2,21 @@ import Link from "next/link";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
+export const metadata = {
+  title: "FAQs",
+  description:
+    "Read common questions and answers about GUE Engineering services, project onboarding, modernization support, post-launch support, and training.",
+  alternates: {
+    canonical: "/faqs",
+  },
+  openGraph: {
+    title: "FAQs | GUE Engineering Limited",
+    description:
+      "Straight answers about services, delivery process, support, and training from GUE Engineering.",
+    url: "/faqs",
+  },
+};
+
 const questions = [
   {
     title: "What services does GUE Engineering provide?",
@@ -30,9 +45,26 @@ const questions = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: questions.map((item) => ({
+    "@type": "Question",
+    name: item.title,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 const FaqPage = () => {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <PageBanner titleHtml={`Freque<span>ntly Asked</span>`} titleText="FAQs" />
 
       <section className="gue-page-section">

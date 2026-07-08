@@ -1,6 +1,21 @@
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
+export const metadata = {
+  title: "Projects",
+  description:
+    "Review selected GUE Engineering projects across web platforms, SaaS systems, cloud-backed applications, and product engineering delivery.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Projects | GUE Engineering Limited",
+    description:
+      "Examples of engineering delivery across applications, platforms, and cloud systems.",
+    url: "/projects",
+  },
+};
+
 const projects = [
   {
     title: "GueInsight",

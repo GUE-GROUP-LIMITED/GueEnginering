@@ -2,6 +2,21 @@ import Link from "next/link";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
+export const metadata = {
+  title: "About Us",
+  description:
+    "Learn about GUE Engineering Limited, our team-led delivery model, and our engineering standards for software, automation, and cloud projects.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About GUE Engineering Limited",
+    description:
+      "Team-led engineering delivery for software, automation, and cloud modernization in Nigeria.",
+    url: "/about",
+  },
+};
+
 const stats = [
   { label: "Started", value: "2020" },
   { label: "Group upgrade", value: "2025" },

@@ -2,6 +2,23 @@ import Link from "next/link";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.gueengineering.com";
+
+export const metadata = {
+  title: "Services",
+  description:
+    "Explore GUE Engineering services: software development, AI-powered automation, SaaS and open-source delivery, DevOps and cloud engineering, IT training, and technical consulting.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Engineering Services | GUE Engineering Limited",
+    description:
+      "Delivery-focused software, AI automation, cloud, and consulting services for modern teams.",
+    url: "/services",
+  },
+};
+
 const services = [
   {
     title: "Software Development",
@@ -42,9 +59,30 @@ const process = [
   "Release, documentation, and support",
 ];
 
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: services.map((service, index) => ({
+    "@type": "Service",
+    position: index + 1,
+    name: service.title,
+    description: service.description,
+    provider: {
+      "@type": "Organization",
+      name: "GUE Engineering Limited",
+      url: siteUrl,
+    },
+    areaServed: "Nigeria",
+  })),
+};
+
 const ServicesPage = () => {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <PageBanner titleHtml={`Se<span>rvices</span>`} titleText="Services" />
 
       <section className="gue-page-section">

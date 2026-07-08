@@ -1,6 +1,21 @@
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact GUE Engineering Limited for software development, AI automation, DevOps and cloud engineering, technical consulting, or training engagements.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact | GUE Engineering Limited",
+    description:
+      "Share your project goals and constraints to start a software, automation, or cloud engineering engagement.",
+    url: "/contact",
+  },
+};
+
 const contactDetails = [
   {
     label: "Email",

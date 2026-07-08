@@ -2,6 +2,21 @@ import Link from "next/link";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
+export const metadata = {
+  title: "Team",
+  description:
+    "Meet the GUE Engineering team and delivery capabilities across full-stack engineering, AI automation, cloud operations, and technical enablement.",
+  alternates: {
+    canonical: "/team",
+  },
+  openGraph: {
+    title: "Team | GUE Engineering Limited",
+    description:
+      "Team-led engineering delivery with practical capability across software, automation, and cloud.",
+    url: "/team",
+  },
+};
+
 const capabilities = [
   "Full-stack application engineering",
   "Cloud infrastructure and deployment automation",
