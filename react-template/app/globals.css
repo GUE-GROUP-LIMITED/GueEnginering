@@ -1642,6 +1642,38 @@ body {
   resize: vertical;
 }
 
+.gue-page-form-honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gue-page-form-status {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 180, 216, 0.22);
+  font-size: 0.86rem;
+}
+
+.gue-page-form-status--success {
+  color: #7ff0a7;
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.gue-page-form-status--error {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.28);
+}
+
+.gue-page-form-note a {
+  color: var(--gue-cyan);
+  text-decoration: underline;
+}
+
 .gue-page-button {
   display: inline-flex;
   align-items: center;

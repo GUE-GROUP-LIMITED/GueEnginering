@@ -1,5 +1,6 @@
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
+import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata = {
   title: "Contact",
@@ -56,52 +57,7 @@ const ContactPage = () => {
               </p>
             </div>
 
-            <form className="gue-page-form" action="#">
-              <div className="gue-page-form-grid">
-                <div>
-                  <label htmlFor="name">Full name</label>
-                  <input id="name" name="name" type="text" placeholder="Your name" required />
-                </div>
-                <div>
-                  <label htmlFor="email">Email address</label>
-                  <input id="email" name="email" type="email" placeholder="you@company.com" required />
-                </div>
-                <div>
-                  <label htmlFor="phone">Phone number</label>
-                  <input id="phone" name="phone" type="text" placeholder="+234 ..." />
-                </div>
-                <div>
-                  <label htmlFor="service">Primary need</label>
-                  <select id="service" name="service" defaultValue="Software Development">
-                    <option>Software Development</option>
-                    <option>AI Automation</option>
-                    <option>SaaS & Open-Source</option>
-                    <option>DevOps & Cloud Engineering</option>
-                    <option>IT Training</option>
-                    <option>Technical Consulting</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message">Project brief</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  placeholder="Describe the problem, expected outcome, timeline, and any existing systems."
-                  required
-                />
-              </div>
-
-              <button type="submit" className="gue-page-button">
-                Send Inquiry
-              </button>
-              <p className="gue-page-form-note">
-                This form is currently a visual placeholder. For immediate contact, email
-                hello@gueengineering.com.
-              </p>
-            </form>
+            <ContactForm />
           </div>
 
           <div className="gue-page-detail-list">
