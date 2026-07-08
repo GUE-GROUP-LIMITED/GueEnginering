@@ -2,8 +2,6 @@ import Link from "next/link";
 import Layout from "@/layout/Layout";
 import PageBanner from "@/layout/PageBanner";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.gueengineering.com";
-
 export const metadata = {
   title: "Services",
   description:
@@ -71,7 +69,7 @@ const servicesSchema = {
     provider: {
       "@type": "Organization",
       name: "GUE Engineering Limited",
-      url: siteUrl,
+      url: "https://www.gueengineering.com",
     },
     areaServed: "Nigeria",
   })),
