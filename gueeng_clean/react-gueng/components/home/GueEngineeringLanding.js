@@ -24,13 +24,6 @@ const services = [
       "CI/CD pipelines, cloud infrastructure setup, and deployment automation for teams that need to ship reliably.",
   },
   {
-    icon: "🏦",
-    title: "UBA Moni Agency Banking",
-    description:
-      "We are a certified UBA Moni Super Agent with a network of agents across Tarka, Benue State. Bring banking to your community — cash deposits, withdrawals, transfers, account opening, BVN enrolment, and bill payments.",
-    highlight: true,
-  },
-  {
     icon: "🎓",
     title: "IT Training",
     description:
@@ -93,13 +86,6 @@ const history = [
     description:
       "Code-Snippet Enterprise formally upgraded to a private limited liability company under CAMA 2020, becoming a subsidiary of Gue Group Limited with objects covering software development, AI automation, SaaS, DevOps, and IT training.",
   },
-  {
-    year: "2025",
-    company: "UBA Moni Super Agent",
-    role: "CERTIFIED SUPER AGENT · TARKA, BENUE STATE",
-    description:
-      "GUE Engineering Limited became a certified UBA Moni Super Agent, building a network of financial access points across Tarka, Benue State — bringing banking services including cash deposits, withdrawals, transfers, account opening, and BVN enrolment to underserved communities.",
-  },
 ];
 
 const projects = [
@@ -144,14 +130,6 @@ const projects = [
     tags: ["Client", "Website"],
   },
   {
-    icon: "🔒",
-    title: "guecyber.com",
-    description: "Internal Gue Group website for cybersecurity operations and brand.",
-    href: "https://guecyber.com",
-    label: "Live",
-    tags: ["Internal", "Gue Group"],
-  },
-  {
     icon: "🏘️",
     title: "brainsestate.com",
     description: "Real estate platform website focused on listings and visibility.",
@@ -166,6 +144,14 @@ const projects = [
     href: "https://yengeraphael.com",
     label: "Live",
     tags: ["Client", "Website"],
+  },
+  {
+    icon: "🔒",
+    title: "guecyber.com",
+    description: "Internal Gue Group website for cybersecurity operations and brand.",
+    href: "https://guecyber.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
   },
   {
     icon: "🏭",
@@ -224,12 +210,19 @@ const projects = [
     label: "Live",
     tags: ["Internal", "Gue Group"],
   },
+  {
+    icon: "💰",
+    title: "guemoni.com",
+    description: "Internal Gue Group website for financial inclusion and banking services.",
+    href: "https://guemoni.com",
+    label: "Live",
+    tags: ["Internal", "Gue Group"],
+  },
 ];
 
 const navItems = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#uba-moni", label: "UBA Moni" },
   { href: "#history", label: "History" },
   { href: "https://www.guegroup.com", label: "Gue Group", external: true },
 ];
@@ -243,6 +236,7 @@ const footerLinks = [
 const groupLinks = [
   { href: "https://www.guecyber.ng", label: "Gue Cyber Nigeria" },
   { href: "https://www.guecyber.com", label: "Gue Cyber Belgium" },
+  { href: "https://www.guemoni.com", label: "Gue Moni — Financial Inclusion" },
 ];
 
 const externalProps = {
@@ -478,7 +472,7 @@ const GueEngineeringLanding = () => {
           </p>
           <div className="gue-home__services-grid">
             {services.map((service) => (
-              <article key={service.title} className={`gue-home__service-card${service.highlight ? " gue-home__service-card--highlight" : ""}`}>
+              <article key={service.title} className="gue-home__service-card">
                 <span className="gue-home__service-icon">{service.icon}</span>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
@@ -506,124 +500,6 @@ const GueEngineeringLanding = () => {
           </div>
         </section>
 
-        <section id="uba-moni" className="gue-home__section">
-          <p className="gue-home__kicker">Financial Services Partnership</p>
-          <h2 className="gue-home__section-title">
-            UBA Moni Super Agent — Bringing Banking to Tarka
-          </h2>
-          <p className="gue-home__section-copy">
-            GUE Engineering Limited is a certified UBA Moni Super Agent with a network of
-            agents operating across Tarka, Benue State — connecting communities to trusted
-            banking services without a traditional branch.
-          </p>
-
-          <div className="gue-home__moni-grid">
-            {/* What is UBA Moni */}
-            <div className="gue-home__moni-explainer">
-              <div className="gue-home__moni-badge">
-                <span className="gue-home__moni-badge-icon">🏦</span>
-                <div>
-                  <p className="gue-home__moni-badge-title">Official UBA Moni Super Agent</p>
-                  <p className="gue-home__moni-badge-sub">
-                    Certified by United Bank for Africa (UBA) · Tarka, Benue State
-                  </p>
-                </div>
-              </div>
-              <p className="gue-home__moni-copy">
-                UBA Moni is United Bank for Africa&apos;s agency banking platform — designed
-                to extend financial services to communities without a bank branch nearby.
-                Through our network of certified agents across Tarka, residents and businesses
-                can access a full range of banking transactions at their doorstep.
-              </p>
-              <p className="gue-home__moni-copy">
-                As a Super Agent, we do not just operate a single POS point — we onboard,
-                train, and supervise a network of agents across the area, earning commissions
-                on every transaction processed across the network.
-              </p>
-              <a
-                href="https://www.ubagroup.com/nigeria/personal-banking/uba-moni/"
-                target="_blank"
-                rel="noreferrer"
-                className="gue-home__moni-link"
-              >
-                Learn about UBA Moni →
-              </a>
-            </div>
-
-            {/* Services grid */}
-            <div className="gue-home__moni-services">
-              {[
-                { icon: "💵", title: "Cash Deposits & Withdrawals", desc: "Accept deposits and process withdrawals for customers across Tarka — instantly settled." },
-                { icon: "📲", title: "Money Transfers", desc: "Intra and interbank transfers to over 500 financial institutions via the UBA Moni app." },
-                { icon: "🆔", title: "Account Opening", desc: "Open a new UBA account with instant BVN/NIN verification — no branch visit needed." },
-                { icon: "🔢", title: "BVN Enrolment", desc: "Register for Bank Verification Number directly through our certified agent points." },
-                { icon: "📄", title: "Bill Payments", desc: "Pay utility bills, airtime, data, and more — available at all agent locations." },
-                { icon: "📶", title: "Pay by Transfer", desc: "Customers can transfer directly from their accounts to the agent — fast and secure." },
-              ].map((s) => (
-                <div key={s.title} className="gue-home__moni-service-card">
-                  <span className="gue-home__moni-service-icon">{s.icon}</span>
-                  <div>
-                    <p className="gue-home__moni-service-title">{s.title}</p>
-                    <p className="gue-home__moni-service-desc">{s.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Why it matters */}
-          <div className="gue-home__moni-impact">
-            <div className="gue-home__moni-impact-item">
-              <span className="gue-home__moni-impact-icon">🌍</span>
-              <div>
-                <p className="gue-home__moni-impact-title">Financial Inclusion in Tarka</p>
-                <p className="gue-home__moni-impact-desc">
-                  Many residents of Tarka and surrounding communities travel long distances to
-                  reach a bank branch. Our UBA Moni agent network brings essential banking
-                  to the community.
-                </p>
-              </div>
-            </div>
-            <div className="gue-home__moni-impact-item">
-              <span className="gue-home__moni-impact-icon">🔗</span>
-              <div>
-                <p className="gue-home__moni-impact-title">How It Connects to Our Tech Work</p>
-                <p className="gue-home__moni-impact-desc">
-                  Our engineering and IT background means we understand the digital
-                  infrastructure behind agency banking — and can support our agents with
-                  technology troubleshooting, device management, and training that most
-                  Super Agents cannot provide.
-                </p>
-              </div>
-            </div>
-            <div className="gue-home__moni-impact-item">
-              <span className="gue-home__moni-impact-icon">📈</span>
-              <div>
-                <p className="gue-home__moni-impact-title">Earn Over ₦1M Per Year</p>
-                <p className="gue-home__moni-impact-desc">
-                  UBA Moni agents earn commissions on every transaction — instantly paid.
-                  As a Super Agent, GUE Engineering also earns commission on every transaction
-                  processed by the agents in our network.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Become an agent CTA */}
-          <div className="gue-home__moni-cta">
-            <div>
-              <p className="gue-home__moni-cta-title">Want to Become a UBA Moni Agent in Tarka?</p>
-              <p className="gue-home__moni-cta-sub">
-                We can onboard you as a UBA Moni agent through our Super Agent network.
-                You need a CAC-registered business or a valid ID, and we handle the rest.
-              </p>
-            </div>
-            <a href="#contact" className="gue-home__moni-cta-btn">
-              Join Our Agent Network →
-            </a>
-          </div>
-        </section>
-
         <section id="history" className="gue-home__section gue-home__section--alt">
           <p className="gue-home__kicker">Our History</p>
           <h2 className="gue-home__section-title">
@@ -635,7 +511,7 @@ const GueEngineeringLanding = () => {
           </p>
           <div className="gue-home__timeline">
             {history.map((item) => (
-              <article key={item.year} className="gue-home__timeline-item">
+              <article key={`${item.year}-${item.company}`} className="gue-home__timeline-item">
                 <div className="gue-home__timeline-year">{item.year}</div>
                 <div className="gue-home__timeline-body">
                   <span className="gue-home__timeline-dot" />
@@ -676,8 +552,9 @@ const GueEngineeringLanding = () => {
               <h2 className="gue-home__group-title">A Subsidiary of Gue Group Limited</h2>
               <p>
                 GUE Engineering Limited operates under Gue Group Limited (RC 7501599),
-                alongside Gue Cyber Limited (RC 8341363) in Nigeria and Gue Cyber (KBO
-                1037.163.392) in Belgium.
+                alongside Gue Cyber Limited (RC 8341363) in Nigeria, Gue Cyber (KBO
+                1037.163.392) in Belgium, and Gue Moni Limited (RC 9853276) for
+                financial inclusion services.
               </p>
             </div>
             <div className="gue-home__group-links">
@@ -754,8 +631,8 @@ const GueEngineeringLanding = () => {
               <a href="https://www.guecyber.com" {...externalProps}>
                 Gue Cyber Belgium
               </a>
-              <a href="https://www.gabrielaloho.com" {...externalProps}>
-                gabrielaloho.com
+              <a href="https://www.guemoni.com" {...externalProps}>
+                Gue Moni Limited
               </a>
             </div>
           </div>
