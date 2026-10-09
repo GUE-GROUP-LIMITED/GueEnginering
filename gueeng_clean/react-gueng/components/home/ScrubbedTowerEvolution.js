@@ -354,15 +354,6 @@ export default function ScrubbedTowerEvolution({
             />
           )}
         </div>
-
-        {/* Bottom Documentation & Customization Tooltip */}
-        <div className="scrubbed-footer-hint">
-          <AppIcon name="cog" size={14} />
-          <span>
-            Modular Scrub Component: Replace with your MP4 (`/public/scrub.mp4`) or
-            frame sequence by passing `videoSrc` or `frameSequence`.
-          </span>
-        </div>
       </div>
     </section>
   );

@@ -16,6 +16,33 @@ export default function LtechNav() {
   const lineRef = useRef(null);
   const pinRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 50) {
+        setIsScrolled(true);
+        // Detect scroll down vs scroll up with hysteresis
+        if (currentScrollY > lastScrollY.current + 6) {
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY.current - 6) {
+          setIsVisible(true);
+        }
+      } else {
+        setIsScrolled(false);
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     // Dynamic import GSAP for client-side load animation
@@ -54,7 +81,11 @@ export default function LtechNav() {
   }, []);
 
   return (
-    <header className="ltech-header">
+    <header
+      className={`ltech-header ${isScrolled ? "ltech-header--scrolled" : ""} ${
+        !isVisible && !mobileOpen ? "ltech-header--hidden" : ""
+      }`}
+    >
       {/* Decorative dynamic SVG line with terminal circular pin */}
       <div className="ltech-nav-line-wrap" aria-hidden="true">
         <svg
@@ -66,9 +97,8 @@ export default function LtechNav() {
         >
           {/* 
             Line starts from top left (x:0, y:20),
-            runs along top to x:520, curves down to y:60 at x:550,
-            runs horizontal to x:1260,
-            and terminates with the pin dot at x:1280.
+            runs along top to x:640, curves down to y:64,
+            and terminates with the pin dot at x:1388.
           */}
           <path
             ref={lineRef}
@@ -87,15 +117,14 @@ export default function LtechNav() {
       </div>
 
       <div className="ltech-nav-inner">
-        {/* Logo matching Screenshot 1 */}
+        {/* Company Logo in Nav (Requirement 6) */}
         <Link href="#top" className="ltech-logo">
-          <div className="ltech-logo-icon">
-            <svg viewBox="0 0 28 28" fill="none" width="24" height="24" aria-hidden="true">
-              {/* Isometric chevron / cube emblem matching Ltech */}
-              <polygon points="6,9 14,4 14,14 6,19" fill="var(--color-forest-dark)" />
-              <polygon points="14,4 22,9 22,19 14,14" fill="var(--color-forest-dark)" opacity="0.8" />
-              <polygon points="6,19 14,14 22,19 14,24" fill="var(--color-forest-dark)" opacity="0.6" />
-            </svg>
+          <div className="ltech-logo-mark">
+            <img
+              src="/brand/logo.png"
+              alt="GUE Engineering logo"
+              className="ltech-logo-img"
+            />
           </div>
           <span className="ltech-logo-text">
             <strong>GUE</strong> <em>Engineering</em>

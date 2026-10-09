@@ -61,58 +61,72 @@ export default function TechneoContactFooter() {
           <div className="techneo-contact-grid">
             {/* Left: Contact Info & Copy */}
             <div className="techneo-contact-left">
-              <p className="techneo-kicker">Get Started</p>
+              <p className="techneo-kicker">Get in Touch</p>
               <h2 className="techneo-serif-title">Have a Project in Mind?</h2>
               <p className="techneo-lead-copy">
                 Tell us what you are building or what is slowing your team down. We will
-                tell you honestly whether we are the right fit.
+                tell you honestly whether we are the right engineering partner for your scope.
               </p>
 
               <div className="techneo-contact-meta-cards">
-                <div className="techneo-contact-meta-item">
-                  <div className="techneo-contact-meta-icon">
-                    <AppIcon name="registration" size={18} />
+                <a
+                  href="mailto:hello@gueengineering.com"
+                  className="techneo-contact-meta-item"
+                >
+                  <div className="techneo-contact-meta-icon" aria-hidden="true">
+                    <AppIcon name="mail" size={20} />
                   </div>
-                  <div>
+                  <div className="techneo-contact-meta-content">
                     <span className="techneo-contact-meta-label">Direct Email</span>
-                    <a
-                      href="mailto:hello@gueengineering.com"
-                      className="techneo-contact-meta-val"
-                    >
+                    <span className="techneo-contact-meta-val">
                       hello@gueengineering.com
-                    </a>
+                    </span>
                   </div>
-                </div>
+                  <div className="techneo-contact-meta-arrow" aria-hidden="true">
+                    <AppIcon name="arrowRight" size={16} />
+                  </div>
+                </a>
 
-                <div className="techneo-contact-meta-item">
-                  <div className="techneo-contact-meta-icon">
-                    <AppIcon name="profile" size={18} />
+                <a
+                  href="tel:+2349041157068"
+                  className="techneo-contact-meta-item"
+                >
+                  <div className="techneo-contact-meta-icon" aria-hidden="true">
+                    <AppIcon name="profile" size={20} />
                   </div>
-                  <div>
+                  <div className="techneo-contact-meta-content">
                     <span className="techneo-contact-meta-label">Phone & WhatsApp</span>
-                    <a href="tel:+2349041157068" className="techneo-contact-meta-val">
+                    <span className="techneo-contact-meta-val">
                       +234 904 115 7068
-                    </a>
+                    </span>
                   </div>
-                </div>
+                  <div className="techneo-contact-meta-arrow" aria-hidden="true">
+                    <AppIcon name="arrowRight" size={16} />
+                  </div>
+                </a>
 
                 <div className="techneo-contact-meta-item">
-                  <div className="techneo-contact-meta-icon">
-                    <AppIcon name="location" size={18} />
+                  <div className="techneo-contact-meta-icon" aria-hidden="true">
+                    <AppIcon name="location" size={20} />
                   </div>
-                  <div>
+                  <div className="techneo-contact-meta-content">
                     <span className="techneo-contact-meta-label">Headquarters</span>
                     <span className="techneo-contact-meta-val">
                       Abuja, Federal Capital Territory, Nigeria
                     </span>
                   </div>
                 </div>
+
+                <div className="techneo-contact-sla-badge">
+                  <AppIcon name="clock" size={16} />
+                  <span>Guaranteed Technical Response within 24 Hours</span>
+                </div>
               </div>
             </div>
 
-            {/* Right: Interactive Contact Form */}
+            {/* Right: Interactive Contact Form (Redesigned) */}
             <div className="techneo-contact-right">
-              <div className="techneo-contact-form-card">
+              <div className="techneo-contact-form-container">
                 <ContactForm />
               </div>
             </div>
@@ -121,19 +135,19 @@ export default function TechneoContactFooter() {
       </section>
 
       {/* ================================================================
-          PART 3: FOOTER
+          PART 3: FOOTER (Unified Palette & Company Logo)
           ================================================================ */}
       <footer className="techneo-footer">
         <div className="techneo-container">
           <div className="techneo-footer-top-grid">
             <div className="techneo-footer-brand-col">
               <div className="techneo-footer-brand">
-                <div className="techneo-footer-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-                    <polygon points="6,8 12,4 12,12 6,16" fill="var(--color-accent-yellow)" />
-                    <polygon points="12,4 18,8 18,16 12,12" fill="var(--color-accent-yellow)" opacity="0.8" />
-                    <polygon points="6,16 12,12 18,16 12,20" fill="var(--color-accent-yellow)" opacity="0.6" />
-                  </svg>
+                <div className="techneo-footer-logo-mark" aria-hidden="true">
+                  <img
+                    src="/brand/logo.png"
+                    alt="GUE Engineering logo"
+                    className="techneo-footer-logo-img"
+                  />
                 </div>
                 <strong>GUE Engineering</strong>
               </div>
@@ -145,6 +159,7 @@ export default function TechneoContactFooter() {
             <div>
               <p className="techneo-footer-heading">Company</p>
               <div className="techneo-footer-links">
+                <a href="#top">Home</a>
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#history">History</a>
@@ -174,6 +189,7 @@ export default function TechneoContactFooter() {
               <p className="techneo-footer-heading">Get in Touch</p>
               <div className="techneo-footer-links">
                 <a href="mailto:hello@gueengineering.com">hello@gueengineering.com</a>
+                <a href="tel:+2349041157068">+234 904 115 7068</a>
                 <a href="#contact">Start a Project</a>
               </div>
             </div>

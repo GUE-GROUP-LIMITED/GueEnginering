@@ -147,12 +147,39 @@ body {
    LTECH NAV STYLES (Screenshot 1)
    ========================================================================= */
 .ltech-header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   background: transparent;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+}
+
+.ltech-header--hidden {
+  transform: translateY(-100%);
+}
+
+.ltech-header--scrolled {
+  background: rgba(203, 243, 140, 0.94);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 10px 30px -8px rgba(25, 56, 36, 0.12), 0 2px 6px rgba(25, 56, 36, 0.05);
+  border-bottom: 1px solid rgba(25, 56, 36, 0.12);
+}
+
+.ltech-header--scrolled .ltech-nav-inner {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.ltech-header--scrolled .ltech-nav-line-wrap {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .ltech-nav-line-wrap {
@@ -164,6 +191,7 @@ body {
   pointer-events: none;
   overflow: visible;
   z-index: 1;
+  transition: opacity 0.3s ease;
 }
 
 .ltech-nav-line-svg {
@@ -181,20 +209,42 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 2;
+  transition: padding 0.3s ease;
 }
 
 .ltech-logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   color: var(--color-forest-dark);
 }
 
-.ltech-logo-icon {
+.ltech-logo-mark {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(25, 56, 36, 0.12);
+  border: 1px solid rgba(25, 56, 36, 0.14);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ltech-logo:hover .ltech-logo-mark {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 4px 14px rgba(25, 56, 36, 0.18);
+}
+
+.ltech-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .ltech-logo-text {
@@ -227,15 +277,16 @@ body {
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  padding: 4px 2px;
-  transition: opacity 0.2s ease;
+  padding: 6px 2px;
+  transition: color 0.2s ease, transform 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
 .ltech-nav-link:hover {
-  opacity: 0.75;
+  transform: translateY(-1px);
+  color: var(--color-card-dark);
 }
 
 .ltech-nav-link::after {
@@ -244,9 +295,10 @@ body {
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 1.5px;
+  height: 2px;
   background-color: var(--color-forest-dark);
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 1px;
 }
 
 .ltech-nav-link:hover::after {
@@ -391,7 +443,7 @@ body {
   background-color: var(--color-bg-landing);
   display: flex;
   align-items: center;
-  padding: 40px 0 80px;
+  padding: 100px 0 80px;
   overflow: hidden;
 }
 
@@ -2418,12 +2470,12 @@ body {
    ------------------------------------------------------------------------- */
 .techneo-services-section {
   background-color: var(--color-bg-inner);
-  padding: 100px 0 80px;
+  padding: 110px 0 90px;
   position: relative;
 }
 
 .techneo-services-header {
-  margin-bottom: 32px;
+  margin-bottom: 44px;
 }
 
 .techneo-services-header-text {
@@ -2434,29 +2486,34 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 .techneo-pill-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background-color: var(--color-card-dark);
   color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 12px 24px;
+  padding: 13px 26px;
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
   white-space: nowrap;
 }
 
 .techneo-pill-btn:hover {
   background-color: var(--color-card-dark-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px -4px rgba(14, 42, 27, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .techneo-pill-btn--active {
@@ -2464,64 +2521,75 @@ body {
   color: var(--color-forest-dark) !important;
   border-color: var(--color-accent-yellow) !important;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(244, 245, 140, 0.35);
+  box-shadow: 0 8px 24px rgba(244, 245, 140, 0.4);
 }
 
 .techneo-active-service-card {
   background: var(--color-card-light);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(25, 56, 36, 0.14);
-  border-radius: var(--radius-lg);
-  padding: 44px;
+  border: 1.5px solid rgba(25, 56, 36, 0.14);
+  border-radius: 24px;
+  padding: 48px;
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   align-items: center;
-  gap: 40px;
-  margin-bottom: 80px;
+  gap: 48px;
+  margin-bottom: 90px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.techneo-active-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px -12px rgba(25, 56, 36, 0.16);
+  border-color: rgba(25, 56, 36, 0.26);
 }
 
 .techneo-active-service-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: rgba(25, 56, 36, 0.08);
   color: var(--color-forest-dark);
-  padding: 6px 14px;
+  padding: 6px 16px;
   border-radius: var(--radius-pill);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
 }
 
 .techneo-active-service-copy h3 {
   font-family: var(--font-display);
-  font-size: 2.2rem;
-  margin: 0 0 14px 0;
+  font-size: clamp(2rem, 2.8vw, 2.5rem);
+  line-height: 1.15;
+  margin: 0 0 16px 0;
   color: var(--color-forest-dark);
 }
 
 .techneo-active-service-copy p {
   font-size: 1.05rem;
-  line-height: 1.6;
+  line-height: 1.68;
   color: var(--color-forest-dark);
   opacity: 0.88;
-  margin: 0 0 24px 0;
+  margin: 0 0 28px 0;
 }
 
 .techneo-active-service-points {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px 0;
+  margin: 0 0 36px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 14px;
 }
 
 .techneo-active-service-points li {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.92rem;
+  gap: 10px;
+  font-size: 0.94rem;
   font-weight: 500;
   color: var(--color-forest-dark);
 }
@@ -2535,27 +2603,32 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: var(--radius-md);
-  padding: 30px;
-  border: 1px solid rgba(25, 56, 36, 0.08);
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 18px;
+  padding: 36px;
+  border: 1px solid rgba(25, 56, 36, 0.1);
+  transition: transform 0.35s ease;
+}
+
+.techneo-active-service-card:hover .techneo-active-service-visual {
+  transform: scale(1.02);
 }
 
 .techneo-service-spot-art {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
 }
 
 /* Stepper (Simplifying IT, Step by Step) */
 .techneo-stepper-block {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .techneo-stepper-header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 .techneo-stepper-nodes-row {
@@ -2563,17 +2636,17 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .techneo-stepper-line {
   position: absolute;
   top: 50%;
-  left: 5%;
-  right: 5%;
+  left: 6%;
+  right: 6%;
   height: 1.5px;
   border-top: 1.5px dashed var(--color-forest-dark);
-  opacity: 0.4;
+  opacity: 0.35;
   z-index: 1;
   transform: translateY(-50%);
 }
@@ -2586,8 +2659,8 @@ body {
 }
 
 .techneo-stepper-node-circle {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: var(--color-card-light-solid);
   border: 1.5px solid var(--color-forest-dark);
@@ -2595,16 +2668,21 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   color: var(--color-forest-dark);
   position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.techneo-stepper-node-circle:hover {
+  transform: scale(1.12);
 }
 
 .techneo-stepper-node--active .techneo-stepper-node-circle {
   background: var(--color-accent-yellow);
   color: var(--color-forest-dark);
   border-color: var(--color-forest-dark);
-  box-shadow: 0 0 0 4px rgba(244, 245, 140, 0.35);
+  box-shadow: 0 0 0 5px rgba(244, 245, 140, 0.45);
 }
 
 .techneo-node-indicator {
@@ -2622,58 +2700,72 @@ body {
 .techneo-stepper-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .techneo-step-card {
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
+  border-radius: 20px;
+  padding: 32px 26px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.32s ease,
+    border-color 0.3s ease;
 }
 
 .techneo-step-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
 }
 
 .techneo-step-card--light {
   background: var(--color-card-light);
-  border: 1px solid rgba(25, 56, 36, 0.12);
+  border: 1.2px solid rgba(25, 56, 36, 0.12);
   color: var(--color-forest-dark);
+}
+
+.techneo-step-card--light:hover {
+  border-color: rgba(25, 56, 36, 0.28);
+  box-shadow: 0 16px 36px -8px rgba(25, 56, 36, 0.12);
 }
 
 .techneo-step-card--active-dark {
   background: var(--color-card-dark);
-  border: 1px solid var(--color-card-dark);
+  border: 1.2px solid var(--color-card-dark);
   color: var(--color-white);
-  box-shadow: 0 12px 30px rgba(14, 42, 27, 0.25);
+  box-shadow: 0 14px 34px rgba(14, 42, 27, 0.28);
+}
+
+.techneo-step-card--active-dark:hover {
+  box-shadow: 0 20px 45px rgba(14, 42, 27, 0.4);
+  border-color: rgba(244, 245, 140, 0.4);
 }
 
 .techneo-step-card-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
-  opacity: 0.8;
+  margin-bottom: 18px;
+  opacity: 0.85;
 }
 
 .techneo-step-number {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .techneo-step-card h4 {
   font-family: var(--font-body);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
 }
 
 .techneo-step-card p {
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.94rem;
+  line-height: 1.6;
   margin: 0;
   opacity: 0.85;
 }
@@ -2683,7 +2775,7 @@ body {
    ------------------------------------------------------------------------- */
 .techneo-about-section {
   background-color: var(--color-bg-inner);
-  padding: 100px 0 80px;
+  padding: 110px 0 90px;
   position: relative;
   border-top: 1px solid rgba(25, 56, 36, 0.08);
 }
@@ -2691,17 +2783,17 @@ body {
 .techneo-about-split-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 50px;
+  gap: 56px;
   align-items: center;
-  margin-bottom: 70px;
+  margin-bottom: 76px;
 }
 
 .techneo-about-body-text {
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: var(--color-forest-dark);
   opacity: 0.9;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .techneo-about-body-text p {
@@ -2721,9 +2813,18 @@ body {
   align-items: center;
   gap: 24px;
   background: var(--color-card-light);
-  border: 1px solid rgba(25, 56, 36, 0.14);
-  padding: 18px 28px;
-  border-radius: var(--radius-lg);
+  border: 1.5px solid rgba(25, 56, 36, 0.15);
+  padding: 20px 30px;
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.techneo-stat-pill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px -8px rgba(25, 56, 36, 0.14);
+  border-color: rgba(25, 56, 36, 0.28);
 }
 
 .techneo-stat-number-box {
@@ -2733,17 +2834,18 @@ body {
 
 .techneo-stat-big-number {
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: 2.35rem;
   font-weight: 700;
   color: var(--color-forest-dark);
   line-height: 1;
 }
 
 .techneo-stat-big-label {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-forest-dark);
   opacity: 0.75;
+  margin-top: 4px;
 }
 
 .techneo-team-avatar-box {
@@ -2753,7 +2855,7 @@ body {
 }
 
 .techneo-team-label {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-forest-dark);
   opacity: 0.75;
@@ -2765,8 +2867,8 @@ body {
 }
 
 .techneo-avatar-circle {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--color-forest-dark);
   color: var(--color-white);
@@ -2777,10 +2879,16 @@ body {
   margin-left: -8px;
   font-size: 0.75rem;
   font-weight: 700;
+  transition: transform 0.2s ease;
 }
 
 .techneo-avatar-circle:first-child {
   margin-left: 0;
+}
+
+.techneo-avatar-circle:hover {
+  transform: translateY(-3px) scale(1.1);
+  z-index: 5;
 }
 
 .techneo-avatar-circle--plus {
@@ -2797,11 +2905,22 @@ body {
 .techneo-fact-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.3);
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(25, 56, 36, 0.08);
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(25, 56, 36, 0.1);
+  transition: transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.techneo-fact-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 10px 24px -6px rgba(25, 56, 36, 0.1);
+  border-color: rgba(25, 56, 36, 0.22);
 }
 
 .techneo-fact-icon-wrap {
@@ -2815,91 +2934,108 @@ body {
 }
 
 .techneo-fact-label {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   opacity: 0.7;
 }
 
 .techneo-fact-value {
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--color-forest-dark);
 }
 
 .techneo-fact-sub {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   opacity: 0.7;
 }
 
 .techneo-workstation-card {
   position: relative;
   background: var(--color-card-dark);
-  border-radius: var(--radius-xl);
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(14, 42, 27, 0.2);
+  box-shadow: 0 24px 48px rgba(14, 42, 27, 0.22);
   border: 2px solid rgba(25, 56, 36, 0.3);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.techneo-workstation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(14, 42, 27, 0.3);
 }
 
 .techneo-workstation-overlay-badge {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 24px;
+  left: 24px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(14, 42, 27, 0.85);
+  background: rgba(14, 42, 27, 0.88);
   backdrop-filter: blur(8px);
   color: var(--color-accent-yellow);
-  padding: 8px 16px;
+  padding: 9px 18px;
   border-radius: var(--radius-pill);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   border: 1px solid rgba(244, 245, 140, 0.3);
 }
 
 /* Testimonial Review Cards (Screenshot 2 pattern) */
 .techneo-testimonials-block {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .techneo-testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .techneo-testimonial-card {
   background: var(--color-card-light);
-  border: 1px solid rgba(25, 56, 36, 0.12);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
+  border: 1.2px solid rgba(25, 56, 36, 0.14);
+  border-radius: 22px;
+  padding: 36px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
 }
 
 .techneo-testimonial-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 22px 46px -10px rgba(25, 56, 36, 0.16);
+  border-color: rgba(25, 56, 36, 0.28);
 }
 
 .techneo-testimonial-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .techneo-quote-badge {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--color-card-dark);
-  color: var(--color-white);
+  color: var(--color-accent-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.techneo-testimonial-card:hover .techneo-quote-badge {
+  transform: rotate(-10deg) scale(1.1);
 }
 
 .techneo-stars-wrap {
@@ -2914,37 +3050,44 @@ body {
 }
 
 .techneo-star-count {
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   font-weight: 700;
   margin-left: 4px;
 }
 
 .techneo-testimonial-quote {
-  font-size: 0.96rem;
-  line-height: 1.6;
+  font-size: 0.98rem;
+  line-height: 1.65;
   color: var(--color-forest-dark);
   font-style: italic;
-  margin: 0 0 24px 0;
+  margin: 0 0 28px 0;
   flex-grow: 1;
 }
 
 .techneo-testimonial-author {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   border-top: 1px solid rgba(25, 56, 36, 0.1);
-  padding-top: 16px;
+  padding-top: 18px;
 }
 
 .techneo-author-avatar {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--color-card-dark);
   color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform 0.25s ease;
+}
+
+.techneo-testimonial-card:hover .techneo-author-avatar {
+  transform: scale(1.1);
 }
 
 .techneo-author-meta {
@@ -2953,12 +3096,12 @@ body {
 }
 
 .techneo-author-meta strong {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: var(--color-forest-dark);
 }
 
 .techneo-author-meta span {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   opacity: 0.75;
 }
 
@@ -2967,14 +3110,14 @@ body {
    ------------------------------------------------------------------------- */
 .techneo-history-section {
   background-color: var(--color-bg-inner);
-  padding: 100px 0 80px;
+  padding: 110px 0 90px;
   position: relative;
   border-top: 1px solid rgba(25, 56, 36, 0.08);
 }
 
 .techneo-history-header {
   max-width: 780px;
-  margin-bottom: 48px;
+  margin-bottom: 52px;
 }
 
 .techneo-timeline-wrapper {
@@ -2984,8 +3127,8 @@ body {
 .techneo-timeline-track-line {
   position: absolute;
   left: 20px;
-  top: 20px;
-  bottom: 20px;
+  top: 24px;
+  bottom: 24px;
   width: 2px;
   background: var(--color-forest-dark);
   opacity: 0.3;
@@ -3002,47 +3145,57 @@ body {
   display: grid;
   grid-template-columns: 80px 1fr;
   align-items: flex-start;
-  gap: 20px;
+  gap: 24px;
 }
 
 .techneo-timeline-node-pin {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding-top: 24px;
+  gap: 10px;
+  padding-top: 26px;
 }
 
 .techneo-timeline-node-dot {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--color-accent-yellow);
   border: 2px solid var(--color-forest-dark);
-  box-shadow: 0 0 0 4px rgba(244, 245, 140, 0.4);
+  box-shadow: 0 0 0 4px rgba(244, 245, 140, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.techneo-timeline-card-item:hover .techneo-timeline-node-dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px rgba(244, 245, 140, 0.6);
 }
 
 .techneo-timeline-node-year {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--color-forest-dark);
 }
 
 .techneo-timeline-card {
   background: var(--color-card-light);
-  border: 1px solid rgba(25, 56, 36, 0.14);
-  border-radius: var(--radius-lg);
-  padding: 32px 36px;
+  border: 1.5px solid rgba(25, 56, 36, 0.14);
+  border-radius: 22px;
+  padding: 36px 40px;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 28px;
-  transition: transform 0.25s ease;
+  gap: 32px;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.32s ease,
+    border-color 0.3s ease;
 }
 
 .techneo-timeline-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px) translateX(6px);
+  box-shadow: 0 20px 42px -10px rgba(25, 56, 36, 0.16);
+  border-color: rgba(25, 56, 36, 0.28);
 }
 
 .techneo-timeline-badge {
@@ -3050,32 +3203,32 @@ body {
   align-items: center;
   gap: 6px;
   background: rgba(25, 56, 36, 0.08);
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: var(--radius-pill);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .techneo-timeline-card h3 {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   color: var(--color-forest-dark);
   margin: 0 0 6px 0;
 }
 
 .techneo-timeline-role-text {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--color-forest-dark);
   opacity: 0.75;
-  margin: 0 0 14px 0;
+  margin: 0 0 16px 0;
 }
 
 .techneo-timeline-desc {
-  font-size: 0.98rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--color-forest-dark);
   opacity: 0.88;
   margin: 0;
@@ -3085,10 +3238,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(25, 56, 36, 0.08);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  border: 1px solid rgba(25, 56, 36, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.techneo-timeline-card:hover .techneo-timeline-card-visual {
+  transform: scale(1.04);
 }
 
 /* -------------------------------------------------------------------------
@@ -3096,7 +3254,7 @@ body {
    ------------------------------------------------------------------------- */
 .techneo-projects-section {
   background-color: var(--color-bg-inner);
-  padding: 100px 0 80px;
+  padding: 110px 0 90px;
   border-top: 1px solid rgba(25, 56, 36, 0.08);
 }
 
@@ -3104,126 +3262,154 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .techneo-projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 32px;
 }
 
 .techneo-project-card {
   background: var(--color-card-light);
-  border: 1px solid rgba(25, 56, 36, 0.12);
-  border-radius: var(--radius-lg);
-  padding: 24px;
+  border: 1.2px solid rgba(25, 56, 36, 0.14);
+  border-radius: 22px;
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .techneo-project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(25, 56, 36, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px -10px rgba(25, 56, 36, 0.18);
+  border-color: rgba(25, 56, 36, 0.28);
 }
 
 .techneo-project-thumbnail {
   position: relative;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(25, 56, 36, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.techneo-project-card:hover .techneo-project-thumbnail {
+  transform: scale(1.02);
 }
 
 .techneo-project-tag {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 12px;
+  right: 12px;
   background: var(--color-card-dark);
   color: var(--color-white);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-pill);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .techneo-project-meta-row {
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   opacity: 0.75;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .techneo-meta-item {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .techneo-project-title {
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
   font-family: var(--font-body);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.28;
 }
 
 .techneo-project-title a {
   color: var(--color-forest-dark);
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.techneo-project-card:hover .techneo-project-title a {
+  color: var(--color-card-dark);
 }
 
 .techneo-project-desc {
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.94rem;
+  line-height: 1.6;
   color: var(--color-forest-dark);
   opacity: 0.85;
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   flex-grow: 1;
 }
 
 .techneo-project-card-footer {
-  border-top: 1px solid rgba(25, 56, 36, 0.08);
-  padding-top: 14px;
+  border-top: 1px solid rgba(25, 56, 36, 0.1);
+  padding-top: 16px;
 }
 
 .techneo-project-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.88rem;
+  gap: 8px;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-forest-dark);
   text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.techneo-project-link:hover {
-  text-decoration: underline;
+.techneo-project-link .inline-icon {
+  transition: transform 0.25s ease;
+}
+
+.techneo-project-card:hover .techneo-project-link .inline-icon {
+  transform: translateX(4px);
 }
 
 /* -------------------------------------------------------------------------
-   GROUP & CONTACT SECTIONS
+   GROUP & SUBSIDIARY CARD
    ------------------------------------------------------------------------- */
 .techneo-group-section {
   background-color: var(--color-bg-inner);
-  padding: 40px 0 80px;
+  padding: 40px 0 90px;
 }
 
 .techneo-group-card {
   background: var(--color-card-dark);
   color: var(--color-white);
-  border-radius: var(--radius-xl);
-  padding: 48px;
+  border-radius: 28px;
+  padding: 52px 48px;
   display: grid;
   grid-template-columns: 80px 1fr;
-  gap: 32px;
+  gap: 36px;
   align-items: center;
-  box-shadow: 0 20px 40px rgba(14, 42, 27, 0.25);
+  box-shadow: 0 24px 50px rgba(14, 42, 27, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.techneo-group-card:hover {
+  box-shadow: 0 30px 60px rgba(14, 42, 27, 0.35);
+  transform: translateY(-2px);
 }
 
 .techneo-group-card .techneo-kicker {
@@ -3236,9 +3422,9 @@ body {
 
 .techneo-group-desc {
   font-size: 1.05rem;
-  line-height: 1.65;
+  line-height: 1.68;
   opacity: 0.85;
-  margin: 0 0 24px 0;
+  margin: 0 0 28px 0;
 }
 
 .techneo-group-links-row {
@@ -3253,83 +3439,434 @@ body {
   gap: 8px;
   background: rgba(255, 255, 255, 0.12);
   color: var(--color-white);
-  padding: 8px 18px;
+  padding: 9px 20px;
   border-radius: var(--radius-pill);
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.25s ease;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .techneo-group-pill-link:hover {
   background: var(--color-accent-yellow);
   color: var(--color-forest-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(244, 245, 140, 0.35);
 }
 
+/* =========================================================================
+   CONTACT SECTION & BESPOKE INTAKE FORM (Requirement 5 Redesign)
+   ========================================================================= */
 .techneo-contact-section {
-  background-color: var(--color-bg-landing);
-  padding: 100px 0 80px;
+  background-color: var(--color-bg-inner);
+  padding: 110px 0 90px;
+  position: relative;
 }
 
 .techneo-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 60px;
+  align-items: flex-start;
+}
+
+.techneo-contact-left {
+  display: flex;
+  flex-direction: column;
 }
 
 .techneo-contact-meta-cards {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   margin-top: 36px;
 }
 
 .techneo-contact-meta-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: rgba(25, 56, 36, 0.05);
-  border: 1px solid rgba(25, 56, 36, 0.12);
-  padding: 16px 20px;
-  border-radius: var(--radius-md);
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1.2px solid rgba(25, 56, 36, 0.12);
+  padding: 18px 24px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.techneo-contact-meta-item:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: rgba(25, 56, 36, 0.28);
+  box-shadow: 0 14px 30px -8px rgba(25, 56, 36, 0.14);
 }
 
 .techneo-contact-meta-icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--color-forest-dark);
-  color: var(--color-white);
+  background: var(--color-card-dark);
+  color: var(--color-accent-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.techneo-contact-meta-item:hover .techneo-contact-meta-icon {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.techneo-contact-meta-content {
+  flex-grow: 1;
 }
 
 .techneo-contact-meta-label {
   display: block;
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  opacity: 0.75;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-forest-dark);
+  opacity: 0.65;
+  margin-bottom: 2px;
 }
 
 .techneo-contact-meta-val {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: var(--color-forest-dark);
   text-decoration: none;
 }
 
-.techneo-contact-form-card {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(8px);
-  border: 1.2px solid var(--color-forest-dark);
-  border-radius: var(--radius-lg);
-  padding: 36px;
+.techneo-contact-meta-arrow {
+  color: var(--color-forest-dark);
+  opacity: 0.4;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.techneo-contact-meta-item:hover .techneo-contact-meta-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.techneo-contact-sla-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(14, 42, 27, 0.08);
+  border: 1px dashed rgba(25, 56, 36, 0.25);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-forest-dark);
+  margin-top: 10px;
+}
+
+/* Redesigned Contact Form Card (Techneo Dark Command Palette) */
+.techneo-contact-form-container {
+  position: relative;
+}
+
+.techneo-contact-form {
+  background: var(--color-card-dark);
+  color: #ffffff;
+  border-radius: 24px;
+  border: 1.5px solid rgba(244, 245, 140, 0.22);
+  box-shadow: 0 24px 60px -15px rgba(14, 42, 27, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glowing accent highlight along top card rim */
+.techneo-contact-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-yellow), transparent);
+  pointer-events: none;
+}
+
+.techneo-form-honeypot {
+  display: none !important;
+}
+
+.techneo-form-card-header {
+  margin-bottom: 28px;
+}
+
+.techneo-form-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(244, 245, 140, 0.12);
+  border: 1px solid rgba(244, 245, 140, 0.3);
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-yellow);
+  margin-bottom: 12px;
+}
+
+.techneo-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent-yellow);
+  box-shadow: 0 0 8px var(--color-accent-yellow);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.techneo-form-card-title {
+  font-family: var(--font-display);
+  font-size: 1.95rem;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.techneo-form-card-subtitle {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #e2eed3;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.techneo-form-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.techneo-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.techneo-field-group--full {
+  margin-bottom: 24px;
+}
+
+.techneo-field-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #d8ebd0;
+  margin-bottom: 8px;
+}
+
+.techneo-req-mark {
+  color: var(--color-accent-yellow);
+  font-weight: 700;
+}
+
+.techneo-input-wrap,
+.techneo-textarea-wrap,
+.techneo-select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.techneo-text-input,
+.techneo-textarea-input,
+.techneo-select-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.techneo-text-input::placeholder,
+.techneo-textarea-input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.techneo-text-input:hover,
+.techneo-textarea-input:hover,
+.techneo-select-input:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(244, 245, 140, 0.4);
+}
+
+.techneo-text-input:focus,
+.techneo-textarea-input:focus,
+.techneo-select-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-accent-yellow);
+  box-shadow: 0 0 0 4px rgba(244, 245, 140, 0.18);
+}
+
+.techneo-select-input {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.techneo-select-input option {
+  background: #0E2A1B;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.techneo-select-chevron {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-accent-yellow);
+}
+
+.techneo-textarea-input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.techneo-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.techneo-form-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--color-accent-yellow);
+  color: var(--color-card-dark);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 16px 36px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 22px rgba(244, 245, 140, 0.25);
+}
+
+.techneo-form-submit-btn:hover:not(:disabled) {
+  background: #ffffff;
+  color: var(--color-card-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(244, 245, 140, 0.4);
+}
+
+.techneo-form-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.techneo-btn-icon {
+  transition: transform 0.25s ease;
+}
+
+.techneo-form-submit-btn:hover:not(:disabled) .techneo-btn-icon {
+  transform: translateX(4px);
+}
+
+.techneo-btn-icon.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.techneo-form-security-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #d5e8bf;
+  opacity: 0.75;
+}
+
+.techneo-form-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.techneo-form-status--success {
+  background: rgba(34, 197, 94, 0.2);
+  border: 1.5px solid #22c55e;
+  color: #bbf7d0;
+}
+
+.techneo-form-status--error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1.5px solid #ef4444;
+  color: #fecaca;
+}
+
+.techneo-form-footer-note {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #c5dcb0;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.techneo-form-footer-note a {
+  color: var(--color-accent-yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+.techneo-form-footer-note a:hover {
+  color: #ffffff;
 }
 
 /* -------------------------------------------------------------------------
-   FOOTER (Unified Palette)
+   FOOTER (Unified Palette & Company Logo)
    ------------------------------------------------------------------------- */
 .techneo-footer {
   background-color: var(--color-card-dark);
@@ -3347,9 +3884,35 @@ body {
 .techneo-footer-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 1.25rem;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.techneo-footer-logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  flex-shrink: 0;
+  border: 1.5px solid var(--color-accent-yellow);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease;
+}
+
+.techneo-footer-brand:hover .techneo-footer-logo-mark {
+  transform: scale(1.08) rotate(3deg);
+}
+
+.techneo-footer-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .techneo-footer-tagline {
@@ -3379,11 +3942,13 @@ body {
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.9rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
 .techneo-footer-links a:hover {
   color: var(--color-accent-yellow);
+  transform: translateX(4px);
 }
 
 .techneo-footer-bottom {
@@ -3443,6 +4008,12 @@ body {
   }
   .techneo-facts-grid {
     grid-template-columns: 1fr;
+  }
+  .techneo-form-fields-grid {
+    grid-template-columns: 1fr;
+  }
+  .techneo-contact-form {
+    padding: 32px 20px;
   }
 }
 

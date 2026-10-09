@@ -31,6 +31,7 @@ import {
   ArrowRight,
   ExternalLink,
   ChevronRight,
+  ChevronDown,
   Star,
   CheckCircle2,
   Calendar,
@@ -39,6 +40,9 @@ import {
   Menu,
   X,
   Sparkles,
+  Lock,
+  Clock,
+  Mail,
 } from "lucide-react";
 
 const ICON_MAP = {
@@ -78,8 +82,10 @@ const ICON_MAP = {
 
   // UI Utilities
   arrow: ArrowRight,
+  arrowright: ArrowRight,
   external: ExternalLink,
   chevron: ChevronRight,
+  chevrondown: ChevronDown,
   star: Star,
   check: CheckCircle2,
   calendar: Calendar,
@@ -88,6 +94,10 @@ const ICON_MAP = {
   menu: Menu,
   close: X,
   sparkle: Sparkles,
+  lock: Lock,
+  clock: Clock,
+  mail: Mail,
+  cog: Cog,
 };
 
 export default function AppIcon({ name, size = 20, className = "", strokeWidth = 1.75 }) {
